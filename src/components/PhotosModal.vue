@@ -3,16 +3,18 @@
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenPhotos}">
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
-                <div class="triple-button">
-                    <div class="button-red" v-on:click="closePhotos"></div>
+                <!-- <div class="triple-button">
+                    <div class="button-red" v-on:click="closeBio"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenPhotos')"></div>
-                </div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
+                </div> -->
+                <div style="color: white; margin-left: 3px;">Photos</div>
+                <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closePhotos">×</div>
             </div>
             <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container">
-                    <div class="header">Photos</div>
+                    <!-- <div class="header">Photos</div> -->
                     <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
                         <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 43" v-bind:key="i" style="padding: 0;margin:0;">
                             <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosWebpExpanded/image-${i}.webp`)"/>
@@ -42,7 +44,7 @@
     height: 100%;
     width: 100%;
     object-fit: cover;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 .square {
@@ -71,16 +73,49 @@ img:hover {
     min-width: 350px;
     height: 500px;
     width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
+    background: rgb(195, 195, 195);
     overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
+    border-top: solid rgb(250, 250, 250) 2px;
+    border-left: solid rgb(250, 250, 250) 2px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    box-shadow: 1.5px 1.5px black;
     max-height: 100%;
+    border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
 }
+
+.button-close {
+    background: rgb(195, 195, 195);
+    border-top: solid rgb(250, 250, 250) 1px;
+    border-left: solid rgb(250, 250, 250) 1px;
+    border-right: solid rgb(90, 90, 90) 1px;
+    border-bottom: solid rgb(90, 90, 90) 1px;
+    box-shadow: 1px 1px black;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-close:hover {
+    cursor: pointer;
+}
+
+.button-close:active {
+    border-radius: 0px;
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
 
 .scroll-container {
     overflow: scroll;
@@ -141,10 +176,12 @@ img:hover {
 
 .top-bar {
     display: flex;
-    height: 40px;
+    height: 25px;
     width: 100%;
-    background: #ECECED;
+    background: rgb(0, 0, 124);
     z-index: 10;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .triple-button {
@@ -207,7 +244,7 @@ img:hover {
 }
 
 .bar {
-    background: #dadada;
+    background: rgb(0, 0, 124);
     height: 1px;
     width: 100%;
 }
@@ -363,7 +400,7 @@ export default {
                 height: `${this.h}px`,
                 width: `${this.w}px`,
                 transform: `translate(${this.x}px, ${this.y}px)`,
-                '--fullscreen': window.innerHeight - 30 + "px"
+                '--fullscreen': window.innerHeight - 40 + "px"
             };
         }
     },

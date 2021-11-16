@@ -3,11 +3,13 @@
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenColorization}">
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenColorization, close: !$store.getters.isShownColorization}">
             <div class="top-bar" id="top-bar" >
-                <div class="triple-button">
-                    <div class="button-red" v-on:click="closeColorization"></div>
+                                <!-- <div class="triple-button">
+                    <div class="button-red" v-on:click="closeBio"></div>
                     <div class="button-yellow"></div>
-                    <div class="button-green" ></div>
-                </div>
+                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
+                </div> -->
+                <div style="color: white; margin-left: 3px;">Welcome</div>
+                <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeBio">×</div>
             </div>
             <div class="bar"></div>
             <div class="content">
@@ -70,16 +72,49 @@ img:hover {
     min-width: 350px;
     height: 500px;
     width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
+    background: rgb(195, 195, 195);
     overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
+    border-top: solid rgb(250, 250, 250) 2px;
+    border-left: solid rgb(250, 250, 250) 2px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    box-shadow: 1.5px 1.5px black;
     max-height: 100%;
+    border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
 }
+
+.button-close {
+    background: rgb(195, 195, 195);
+    border-top: solid rgb(250, 250, 250) 1px;
+    border-left: solid rgb(250, 250, 250) 1px;
+    border-right: solid rgb(90, 90, 90) 1px;
+    border-bottom: solid rgb(90, 90, 90) 1px;
+    box-shadow: 1px 1px black;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-close:hover {
+    cursor: pointer;
+}
+
+.button-close:active {
+    border-radius: 0px;
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
 
 .scroll-container {
     overflow: scroll;

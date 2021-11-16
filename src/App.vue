@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <TopNav />
+        <!-- <TopNav /> -->
         <div class="screen" id="screen" style="position: relative;">
             <nossaflex id="noss" :class="{fullscreen: $store.getters.isFullscreenNossaflex}" v-if="$store.getters.isShownNossaflex" style=" position: absolute;" @click.native="focusNoss" />
             <photos-modal id="photos" :class="{fullscreen: $store.getters.isFullscreenPhotos}" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
@@ -17,7 +17,7 @@
 <script>
 import Nossaflex from './components/Nossaflex.vue'
 import Navbar from './components/Navbar'
-import TopNav from './components/TopNav'
+// import TopNav from './components/TopNav' //not used
 import PhotosModal from './components/PhotosModal.vue'
 import Stickies from './components/Notepad.vue'
 import Mail from './components/Mail.vue'
@@ -36,7 +36,7 @@ export default {
         Nossaflex,
         PhotosModal,
         Navbar,
-        TopNav,
+        // TopNav,
         Stickies,
         Mail,
         Bio,
@@ -76,7 +76,7 @@ export default {
     computed: {
         style() {
             return {
-                '--fullscreen': window.innerHeight - 30 + "px"
+                '--fullscreen': window.innerHeight - 40 + "px"
             };
         }
     },
@@ -113,12 +113,18 @@ export default {
 </script>
 
 <style>
+@font-face {
+    font-family: "MS Sans Serif";
+    src: url('~@/assets/fonts/MS-Sans-Serif.ttf');
+}
+
+
 html {
     overflow: hidden;
 }
 
 #app {
-    font-family: Avenir, Helvetica, Arial, sans-serif;
+    font-family: 'MS Sans Serif';
     
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -145,10 +151,10 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    background: #018281;
 }
 
 body {
-    background-image: url('./assets/light.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -156,7 +162,6 @@ body {
 
 @media (prefers-color-scheme: dark) {
     body {
-        background-image: url('./assets/dark.webp');
         background-repeat: no-repeat;
         background-size: cover;
         background-position: center;
@@ -167,8 +172,6 @@ body {
     width: auto;
     height: 70px;
     background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
     border: 1px solid rgb(255, 255, 255, 0.2);
     display: flex;
     justify-content: space-evenly;
@@ -176,7 +179,6 @@ body {
 }
 
 .wrapper {
-    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     position: fixed;

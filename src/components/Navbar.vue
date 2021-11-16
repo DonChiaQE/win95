@@ -1,13 +1,22 @@
 <template>
     <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
           <div class="bar-container">
-              <div alt="Biography" class="icon-bio icon" v-on:click="showBio"></div>
-              <div alt="NOSSAFLEX" class="icon-nossaflex icon" v-on:click="showNossaflex"></div>
-              <div alt="Photos" class="icon-photo icon" v-on:click="showPhotos"></div>
-              <div alt="Mail" class="icon-mail icon" v-on:click="showMail"></div>
-              <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div>
-              <div alt="Github" onclick="window.location='https://github.com/dhs17y2adonchia'" class="icon-github icon"></div>
-              <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div>
+                <div alt="start" class="start-menu">
+                    <img class="start-icon" src="../assets/win95.png"/>
+                    <div style="padding-left: 3px; font-size: 0.9rem; font-weight: bold;">Start</div>
+                </div>
+            <div class="icon-bar">
+              <div alt="Biography" class="icon-bio icon" v-on:click="showBio">Biography</div>
+              <div alt="NOSSAFLEX" class="icon-nossaflex icon" v-on:click="showNossaflex">NOSSAFLEX</div>
+              <div alt="Photos" class="icon-photo icon" v-on:click="showPhotos">Photos</div>
+              <div alt="Mail" class="icon-mail icon" v-on:click="showMail">Mail</div>
+              <!-- <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div> -->
+              <div alt="Github" onclick="window.location='https://github.com/dhs17y2adonchia'" class="icon-github icon">GitHub</div>
+              <!-- <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div> -->
+            </div>
+            <div alt="time" class="time">
+                <span>{{this.time}}</span>
+            </div>
           </div>
         </div>
 </template>
@@ -18,19 +27,66 @@
 }
 
 .bar-container {
-    width: auto;
-    height: 70px;
-    background-color: rgba(255, 255, 255, .15);
-    backdrop-filter: blur(10px);
-    border-radius: 20px;
-    border: 1px solid rgb(255, 255, 255, 0.2);
+    width: 100%;
+    height: 35px;
     display: flex;
-    justify-content: space-evenly;
+    align-items: center;
+    background: rgb(192, 192, 192);
+    border-top: solid rgb(250, 250, 250) 2px;
+}
+
+.time {
+    width: 65px;
+    margin: 5px;
+    height: 25px;
+    background: rgb(192, 192, 192);
+    border-right: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-top: solid rgb(90, 90, 90) 1.5px;
+    border-left: solid rgb(90, 90, 90) 1.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 0.6em;
+}
+
+.start-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.start-menu {
+    width: 65px;
+    margin: 5px;
+    height: 23px;
+    box-shadow: 1.5px 1.5px black;
+    border-top: solid rgb(250, 250, 250) 1.5px;
+    border-left: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    background: rgb(192, 192, 192);
+    border-radius: 0.5px;
+    display: flex;
+    /* justify-content: space-between; */
+    justify-content: center;
     align-items: center;
 }
 
-@media only screen and (max-width: 600px) { 
-    .bar-container {
+.start-menu:hover {
+    cursor: pointer;
+}
+
+.start-menu:active {
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
+@media only screen and (max-width: 700px) { 
+    /* .bar-container {
         width: 100vw !important;
         border-radius: 4vw;
         margin-left: 4vw;
@@ -52,11 +108,14 @@
         margin-left: 1vw !important;
         margin-right: 1vw !important;
         border-radius: 2vw !important;
+    } */
+
+    .icon {
+        width: auto !important; 
     }
 }
 
 .wrapper {
-    padding-bottom: 20px;
     display: flex;
     justify-content: center;
     position: fixed;
@@ -64,19 +123,46 @@
     width: 100%;
 }
 
-.icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    justify-content: center;
+.icon-bar {
+    width: 100%;
+    height: 100%;
+    /* background: blue; */
+    display: flex;
     align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: none;
+}
+
+.icon {
+    width: 100px;
+    height: 23px;
+    border-radius: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    box-shadow: 1.5px 1.5px black;
+    border-top: solid rgb(250, 250, 250) 1.5px;
+    border-left: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    background: rgb(192, 192, 192);
+    border-radius: 0.5px;
+    display: flex;
+    justify-content: flex-start;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    font-size: 0.7rem;
 }
 
 .icon:hover{
     cursor: pointer;
+}
+
+.icon:active {
+    background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
 }
 
 .icon-special {
@@ -96,7 +182,6 @@
 }
 
 .icon-wip {
-    background-image: url('../assets/Icons/WIP.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -107,46 +192,46 @@
 }
 
 .icon-nossaflex {
-    background-image: url('../assets/Icons/NossaflexLight.webp');
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-photo {
-    background-image: url('../assets/Icons/Photo.webp');
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-mail {
-    background-image: url('../assets/Icons/Mail.webp');
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-stickies {
-    background-image: url('../assets/Icons/Stickies.webp');
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
 .icon-github {
-    background-image: url('../assets/Icons/Github.webp');
+
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
 }
 
-.icon-bio {
+/* .icon-bio {
     background-image: url('../assets/Icons/Bio.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 
 .icon-simulator {
     background-image: url('../assets/Icons/Simulator.webp');
@@ -157,7 +242,6 @@
 
 @media (prefers-color-scheme: dark) {
     .icon-nossaflex {
-    background-image: url('../assets/Icons/NossaflexDark.webp');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -166,14 +250,25 @@
 </style>
 
 <script>
+import moment from 'moment'
 export default {
     props: {
         shownProp: Boolean
     },
     data() {
         return {
-            showHello: this.shownProp
+            showHello: this.shownProp,
+            time: '',
+            date: ''
         }
+    },
+    beforeMount() {
+        setInterval(() => {
+            this.time = moment().format('hh:mm A')
+        }, 1000)
+        setInterval(() => {
+            this.date = moment().format('ddd DD MMMM')
+        }, 1000)
     },
     methods: {
         toggleShow() {

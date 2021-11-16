@@ -3,11 +3,13 @@
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenBio}">
         <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenBio, close: !$store.getters.isShownBio}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenBio')">
-                <div class="triple-button">
+                <!-- <div class="triple-button">
                     <div class="button-red" v-on:click="closeBio"></div>
                     <div class="button-yellow"></div>
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
-                </div>
+                </div> -->
+                <div style="color: white; margin-left: 3px;">Welcome</div>
+                <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeBio">×</div>
             </div>
             <div class="bar"></div>
             <div class="content">
@@ -116,13 +118,15 @@
     min-width: 350px;
     height: 500px;
     width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
+    background: rgb(195, 195, 195);
     overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
+    border-top: solid rgb(250, 250, 250) 2px;
+    border-left: solid rgb(250, 250, 250) 2px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    box-shadow: 1.5px 1.5px black;
     max-height: 100%;
+    border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
 }
@@ -130,7 +134,7 @@
 .self {
     width: 100%;
     height: auto;
-    border-radius: 5px;
+    /* border-radius: 5px; */
 }
 
 @media only screen and (max-width: 600px) {
@@ -147,6 +151,36 @@
         padding-left: 10vw !important;
         padding-right: 10vw !important;
     }
+}
+
+.button-close {
+    background: rgb(195, 195, 195);
+    border-top: solid rgb(250, 250, 250) 1px;
+    border-left: solid rgb(250, 250, 250) 1px;
+    border-right: solid rgb(90, 90, 90) 1px;
+    border-bottom: solid rgb(90, 90, 90) 1px;
+    box-shadow: 1px 1px black;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.button-close:hover {
+    cursor: pointer;
+}
+
+.button-close:active {
+    border-radius: 0px;
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
 }
 
 .badge-grid {
@@ -213,10 +247,12 @@
 
 .top-bar {
     display: flex;
-    height: 40px;
+    height: 25px;
     width: 100%;
-    background: #ECECED;
+    background: rgb(0, 0, 124);
     z-index: 10;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .triple-button {
@@ -279,7 +315,7 @@
 }
 
 .bar {
-    background: #dadada;
+    background: rgb(0, 0, 124);
     height: 1px;
     width: 100%;
 }
@@ -437,7 +473,7 @@ export default {
                 height: `${this.h}px`,
                 width: `${this.w}px`,
                 transform: `translate(${this.x}px, ${this.y}px)`,
-                '--fullscreen': window.innerHeight - 30 + "px"
+                '--fullscreen': window.innerHeight - 40 + "px"
             };
         }
     },
