@@ -32,6 +32,7 @@
               <!-- <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div> -->
             </div>
             <div alt="time" class="time">
+                <img src="../assets/speakers.png" class="icon-image"/>
                 <span>{{this.time}}</span>
             </div>
           </div>
@@ -53,7 +54,7 @@
 }
 
 .time {
-    width: 65px;
+    width: 75px;
     margin: 5px;
     height: 25px;
     background: rgb(192, 192, 192);
@@ -64,6 +65,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
     font-size: 0.6em;
 }
 
