@@ -1,17 +1,15 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenBio}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenBio, close: !$store.getters.isShownBio}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenBio')">
-                <!-- <div class="triple-button">
-                    <div class="button-red" v-on:click="closeBio"></div>
-                    <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
-                </div> -->
-                <div style="color: white; margin-left: 3px;">Welcome</div>
-                <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeBio">×</div>
+        <div class="window" id="container" :class="{ fullscreen: $store.getters.isFullscreenBio, close: !$store.getters.isShownBio}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenBio')" :class="$store.getters.activeWindow=='Bio' ? 'top-bar' : 'top-bar-deactivated'">
+                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/bio.png"/>Welcome</div>
+                <div class="triple-button">
+                    <div class="button-hide" v-on:click="minimizeBio"><span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;"></span></div>
+                    <div class="button-expand" v-on:click="$store.commit('toggleFullscreenBio')"><span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid"></span></div>
+                    <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeBio">×</div>
+                </div>
             </div>
-            <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenBio }">
                     <img class="self" src="../assets/Biography/self.webp" />
@@ -81,10 +79,10 @@
                             <div class="paragraph">Fullstack development is very sought after nowadays and I have made sure to keep up with such trends by honing my skills in UI/UX design as well. I am thankful for the various opportunities I have had to work alongside industry expert and have also taken the chance to learn and hone my UI/UX design skills with tools such as Figma.</div>
                         </div>
 
-                        <div class="inner-content">
+                        <!-- <div class="inner-content">
                             <div class="heading"><b>Interests and Hobbies</b></div>
                             <div class="paragraph">Analog photography and colorizing of historical photos have always interested me and some of my photographic works are displayed <span style="cursor: pointer; color: #FF5733;" v-on:click="showPhotos">here</span> while you can find my colorization portfolio <span style="cursor: pointer; color: #FF5733;" v-on:click="showColorization">here</span>.</div>
-                        </div>
+                        </div> -->
 
                         <div class="inner-content">
                             <div class="heading"><b>Résumé</b></div>
@@ -92,10 +90,6 @@
                         </div>                
                 </div>
             </div>
-            <!-- <div class="resizer resizer-b"></div>
-                                    <div class="resizer resizer-l"></div>
-                                    <div class="resizer resizer-t"></div>
-                                    <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -113,7 +107,7 @@
     cursor: auto !important;
 }
 
-.about-me {
+.window {
     min-height: 500px;
     min-width: 350px;
     height: 500px;
@@ -126,9 +120,9 @@
     border-bottom: solid rgb(90, 90, 90) 1.5px;
     box-shadow: 1.5px 1.5px black;
     max-height: 100%;
-    border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
+    outline: rgb(222, 222, 222) 1px solid;
 }
 
 .self {
@@ -138,7 +132,7 @@
 }
 
 @media only screen and (max-width: 600px) {
-    .about-me {
+    .window {
         min-width: 50vw;
         width: 90vw;
         max-width: 100vw;
@@ -153,7 +147,7 @@
     }
 }
 
-.button-close {
+.button-expand, .button-close, .button-hide {
     background: rgb(195, 195, 195);
     border-top: solid rgb(250, 250, 250) 1px;
     border-left: solid rgb(250, 250, 250) 1px;
@@ -167,13 +161,14 @@
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 2px;
 }
 
-.button-close:hover {
+.button-close:hover, .button-expand:hover, .button-hide:hover {
     cursor: pointer;
 }
 
-.button-close:active {
+.button-close:active, .button-expand:active, .button-hide:active {
     border-radius: 0px;
 background: rgb(192, 192, 192);
             box-shadow: none;
@@ -248,18 +243,22 @@ background: rgb(192, 192, 192);
 .top-bar {
     display: flex;
     height: 25px;
-    width: 100%;
+    width: auto;
     background: rgb(0, 0, 124);
     z-index: 10;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.top-bar-deactivated {
+    background: rgb(123, 125, 123);
 }
 
 .triple-button {
     display: flex;
-    padding-left: 15px;
     align-items: center;
-    width: 50px;
     justify-content: space-between;
 }
 
@@ -402,35 +401,6 @@ background: rgb(192, 192, 192);
 .resizer {
     position: absolute;
 }
-
-@media (prefers-color-scheme: dark) {
-    .about-me {
-        border: 1px solid #0B0A0B;
-        background: #1C1C1D;
-    }
-    .top-bar {
-        background: #333333;
-    }
-    .bar {
-        background: #0B0A0B
-    }
-    .hello {
-        color: white
-    }
-    .textarea-content {
-        caret-color: white;
-        color: white;
-    }
-    .header {
-        color: white;
-    }
-    .paragraph {
-        color: white;
-    }
-    .heading {
-        color: white;
-    }
-}
 </style>
 
 <script>
@@ -536,10 +506,15 @@ export default {
             document.onmouseup = null
             document.onmousemove = null
         },
-        closeBio(e) {
+        minimizeBio(e) {
             e.stopPropagation()
             this.$store.commit('toggleShownBio', false)
             this.$store.commit('changeActiveWindow', 'Finder')
+        },
+        closeBio(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleCloseBio', false)
+            this.$store.commit('toggleShownBio', false)
         }
     },
     mounted: function() {

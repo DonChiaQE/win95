@@ -1,7 +1,9 @@
 <template>
     <div id="app">
         <!-- <TopNav /> -->
-        <div class="screen" id="screen" style="position: relative;">
+        <div class="screen" id="screen" style="position: relative; z-index: 100;" v-on:click="deinitWindows">
+            <AppGrid class="app-grid" style="position: absolute;"></AppGrid>
+            <StartMenu v-if="$store.getters.activeWindow=='Menu'" style="position: absolute; z-index: 9999; bottom: 0; left: 0;"></StartMenu>
             <nossaflex id="noss" :class="{fullscreen: $store.getters.isFullscreenNossaflex}" v-if="$store.getters.isShownNossaflex" style=" position: absolute;" @click.native="focusNoss" />
             <photos-modal id="photos" :class="{fullscreen: $store.getters.isFullscreenPhotos}" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
             <stickies id="stickies" :class="{fullscreen: $store.getters.isFullscreenStickies}" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
@@ -24,6 +26,8 @@ import Mail from './components/Mail.vue'
 import Bio from './components/Bio.vue'
 import Simulator from './components/Simulator.vue'
 import Colorization from './components/Colorization.vue'
+import AppGrid from './components/AppGrid.vue'
+import StartMenu from './components/StartMenu.vue'
 
 export default {
     name: 'App',
@@ -41,7 +45,9 @@ export default {
         Mail,
         Bio,
         Simulator,
-        Colorization
+        Colorization,
+        AppGrid,
+        StartMenu
     },
     methods: {
         focusPhotos() {
@@ -71,6 +77,17 @@ export default {
         focusColorization() {
             this.$store.commit('changeActiveWindow', 'Colorization')
             this.$store.commit('zIndexIncrement', 'colorization')
+        },
+        deinitWindows() {
+            if (this.$store.getters.activeWindow=='Menu') {
+                console.log('deinitWindows')
+            this.$store.commit('changeActiveWindow', '')
+            this.$store.commit('toggleShownMenu', false)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', '')
+            }, 1);
+            }
+            
         }
     },
     computed: {
@@ -81,7 +98,7 @@ export default {
         }
     },
     mounted() {
-        document.getElementById('screen').style.height = window.innerHeight - 30 + "px";
+        document.getElementById('screen').style.height = window.innerHeight - 40 + "px";
         document.addEventListener("keydown", function(e) {
             if ((window.navigator.platform.match("Mac") ? e.metaKey : e.ctrlKey) && e.keyCode == 83) {
                 e.preventDefault();
@@ -125,7 +142,6 @@ html {
 
 #app {
     font-family: 'MS Sans Serif';
-    
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
     display: flex;
@@ -186,18 +202,9 @@ body {
     width: 100%;
 }
 
-.icon {
-    width: 45px;
-    height: 45px;
-    border-radius: 10px;
-    background: white;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-}
-
-.icon:hover {
-    cursor: pointer;
+.icon-image {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
 }
 </style>

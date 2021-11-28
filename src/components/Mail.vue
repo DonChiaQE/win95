@@ -2,44 +2,59 @@
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenMail}">
         <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(this.submitted)  {window.location='https://bigsurmacos.netlify.app/';}"></iframe>
-        <form v-on:submit="sendEmail" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRBqHB0Z6GOjwE3jniX8-fHfJK-WcyzNTmkPFg4fg2SYPwpA/formResponse" class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}" target="hidden_iframe">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
+        <form v-on:submit="sendEmail" action="https://docs.google.com/forms/u/0/d/e/1FAIpQLSdRBqHB0Z6GOjwE3jniX8-fHfJK-WcyzNTmkPFg4fg2SYPwpA/formResponse" class="window" id="container" :class="{ fullscreen: $store.getters.isFullscreenMail, close: !$store.getters.isShownMail}" target="hidden_iframe">
+            <!-- <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')">
                 <div class="triple-button">
                     <div class="button-red" v-on:click="closeMail"></div>
                     <div class="button-yellow"></div>
-                    <!-- <input class="button-yellow" type="submit" value="Send"> -->
                     <div class="button-green" v-on:click="$store.commit('toggleFullscreenMail')"></div>
                 </div>
                 <button type="submit" class="sent" style="" >
                     <img class="sent" src="../assets/sent.webp" style="width: 20%; height: 20%; margin-left: 32px;"/>
                 </button>
+            </div> -->
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenMail')" :class="$store.getters.activeWindow=='Mail' ? 'top-bar' : 'top-bar-deactivated'">
+                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/mail.png"/>New Message</div>
+                <div class="triple-button">
+                    <div class="button-hide" v-on:click="minimizeMail"><span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;"></span></div>
+                    <div class="button-expand" v-on:click="$store.commit('toggleFullscreenMail')"><span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid"></span></div>
+                    <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeMail">×</div>
+                </div>
             </div>
-            <div class="bar"></div>
+             <div class="send-bar">
+                 
+                 <button type="submit" class="sent" style="z-index: 10;">
+                    <span style="display: flex;" class="border">
+                        <img src="../assets/send.png" class="icon-image"/>
+                        <div style="margin-top: 2px;">Send</div>
+                    </span>
+                 </button>
+                
+             </div>
             <div class="content">
                 <div class="scroll-container">
-                    <div class="header">{{$store.getters.mailSubject}}</div>
-                    <div class="subject-container" style="margin-top: 5px;">
-                        <p>To:</p>
-                        <div class="receipient">Don</div>
+                    <div class="container-details">
+                        <div class="header">{{$store.getters.mailSubject}}</div>
+                        <hr>
+                        <div class="subject-container">
+                            <p style="margin: 8px;">To:</p>
+                            <div class="receipient">Don</div>
+                        </div>
+                        <hr>
+                        <div class="subject-container">
+                            <p style="margin: 8px;">Subject:</p>
+                            <input name="entry.609946071" class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
+                        </div>
+                        <hr>
+                        <div class="from-container" style="margin-bottom: 8px;">
+                            <p style="margin: 8px;">From:</p>
+                            <input name="entry.367924729" class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
+                        </div>
                     </div>
-                    <hr>
-                    <div class="subject-container" style="margin-top: 5px;">
-                        <p>Subject:</p>
-                        <input name="entry.609946071" class="subject" v-model="mailSubject" v-on:input="onChangeMailSubject" type="text" required="true" />
-                    </div>
-                    <hr>
-                    <div class="from-container">
-                        <p>From:</p>
-                        <input name="entry.367924729" class="subject" v-model="mailSender" v-on:input="onChangeMailSender" type="email" required="true" />
-                    </div>
-                    <hr>
+
                     <textarea :class="{ textareaFullscreen: $store.getters.isFullscreenMail}" name="entry.863594021" v-model="mailContent" v-on:input="onChangeMailContent" required="true"></textarea>
                 </div>
             </div>
-            <!-- <div class="resizer resizer-b"></div>
-                                                                                                <div class="resizer resizer-l"></div>
-                                                                                                <div class="resizer resizer-t"></div>
-                                                                                                <div class="resizer resizer-r"></div> -->
         </form>
     </interact>
 </template>
@@ -69,12 +84,63 @@ button {
     display: flex;
     align-items: center;
     margin: 0;
+    font-family: "MS Sans Serif";
+    src: url('~@/assets/fonts/MS-Sans-Serif.ttf');
     padding: 0;
 }
 
 hr {
     background-color: rgb(155, 155, 155, 0.2);
     width: 100%;
+}
+
+.sent {
+    vertical-align: middle;
+    box-shadow: 1.5px 1.5px black;
+    border-top: solid rgb(250, 250, 250) 1.5px;
+    border-left: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    background: rgb(192, 192, 192);
+    padding: 1px;
+}
+
+.sent:active {
+    box-shadow: none;
+    background: repeating-conic-gradient(rgb(189, 190, 189) 0% 25%, rgb(255, 255, 255) 0% 50%) 
+              50% / 2px 2px;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+}
+
+.border:active {
+    border: black dotted 1px;
+}
+
+.sent:hover {
+    cursor: pointer;
+}
+
+.container-details {
+    border: 1px white solid;
+    background: white;
+}
+
+.send-bar {
+    border: 1px white solid;
+    outline: 1px rgb(123, 125, 123) solid;
+    font-size: 12px;
+    padding: 4px;
+    margin: 2px;
 }
 
 .receipient {
@@ -97,17 +163,65 @@ hr {
     align-items: center;
 }
 
+.button-expand, .button-close, .button-hide {
+    background: rgb(195, 195, 195);
+    border-top: solid rgb(250, 250, 250) 1px;
+    border-left: solid rgb(250, 250, 250) 1px;
+    border-right: solid rgb(90, 90, 90) 1px;
+    border-bottom: solid rgb(90, 90, 90) 1px;
+    box-shadow: 1px 1px black;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.button-close:hover, .button-expand:hover, .button-hide:hover {
+    cursor: pointer;
+}
+
+.button-close:active, .button-expand:active, .button-hide:active {
+    border-radius: 0px;
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
+.top-bar {
+    display: flex;
+    height: 25px;
+    width: auto;
+    background: rgb(0, 0, 124);
+    z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.top-bar-deactivated {
+    background: rgb(123, 125, 123);
+}
+
 input {
     outline: none;
 }
 
 textarea {
-    width: 100%;
-    flex-grow: 0.825;
+    flex-grow: 0.76;
     background: none;
-    border: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
     overflow: auto;
-    outline: none;
     -webkit-box-shadow: none;
     -moz-box-shadow: none;
     box-shadow: none;
@@ -119,7 +233,7 @@ textarea {
 }
 
 .textareaFullscreen {
-    flex-grow: 0.9;
+    flex-grow: 1;
 }
 
 .resize-drag {
@@ -134,35 +248,34 @@ textarea {
     cursor: auto !important;
 }
 
-.about-me {
+.window {
     min-height: 500px;
     min-width: 350px;
     height: 500px;
     width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
+    /* background: rgb(195, 195, 195); */
     overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
+    background: rgb(192, 192, 192);
+    box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
     max-height: 100%;
     max-width: 100%;
     align-items: flex-end;
+    outline: rgb(222, 222, 222) 1px solid;
 }
 
 .scroll-container {
-    overflow: none;
-    padding-top: 20px;
-    display: flex;
     flex-direction: column;
+    display: flex;
     height: 100%;
-    overflow: none;
-    padding-top: 20px;
     width: 100%;
 }
 
 @media only screen and (max-width: 600px) {
-    .about-me {
+    .window {
         min-width: 50vw;
         width: 90vw;
         max-width: 100vw;
@@ -192,22 +305,9 @@ textarea {
     display: block;
 }
 
-.top-bar {
-    display: flex;
-    height: 53px;
-    width: 100%;
-    background: #ECECED;
-    z-index: 10;
-    align-items: center;
-    border-top-left-radius: 15px;
-    border-top-right-radius: 15px;
-}
-
 .triple-button {
     display: flex;
-    padding-left: 15px;
     align-items: center;
-    width: 50px;
     justify-content: space-between;
 }
 
@@ -285,13 +385,14 @@ textarea {
     align-items: flex-start;
     justify-content: flex-start;
     height: 100%;
-    padding-left: 50px; 
+    margin: 2px;
 }
 
 .header {
     font-weight: 700;
     font-size: 28px;
     padding-top: 10px;
+    margin-left:8px;
 }
 
 .expandedScrollContainer {
@@ -345,38 +446,6 @@ textarea {
 .resizer {
     position: absolute;
 }
-
-@media (prefers-color-scheme: dark) {
-    .about-me {
-        border: 1px solid #0B0A0B;
-        background: #1C1C1D;
-    }
-    .top-bar {
-        background: #333333;
-    }
-    .bar {
-        background: #0B0A0B
-    }
-    .hello {
-        color: white
-    }
-    .textarea-content {
-        caret-color: white;
-        color: white;
-    }
-    .header {
-        color: white;
-    }
-    .paragraph {
-        color: white;
-    }
-    input {
-        color: white;
-    }
-    textarea {
-        color: white;
-    }
-}
 </style>
 
 <script>
@@ -422,7 +491,8 @@ export default {
                 height: `${this.h}px`,
                 width: `${this.w}px`,
                 transform: `translate(${this.x}px, ${this.y}px)`,
-                '--fullscreen': window.innerHeight - 30 + "px"
+                '--fullscreen': window.innerHeight - 40 + "px",
+                '--fullscreen-flex': window.innerHeight/3 + "px"
             };
         }
     },
@@ -502,10 +572,15 @@ export default {
         onClickLog() {
             alert("Hello! I am an alert box!!");
         },
-        closeMail(e) {
+        minimizeMail(e) {
             e.stopPropagation()
             this.$store.commit('toggleShownMail', false)
             this.$store.commit('changeActiveWindow', 'Finder')
+        },
+        closeMail(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleCloseMail', false)
+            this.$store.commit('toggleShownMail', false)
         }
     },
     mounted: function() {

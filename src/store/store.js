@@ -10,17 +10,21 @@ export const store = new Vuex.Store({
     // Z-index counter
     zIndex: 2,
     // Nossaflex window
-    isShownNossaflex: false,
+    isShownNossaflex: false, // hide using - button
     isFullscreenNossaflex: false,
+    closeNossaflex: false, // close using x button
     // Photo window
-    isShownPhotos: false,
+    isShownPhotos: false, // hide using - button
     isFullscreenPhotos: false,
+    closePhotos: false, // close using x button
     // Colorization window
     isShownColorization: false,
     isFullscreenColorization: false,
+    closeColorization: false, // close using x button
     // Bio window
     isShownBio: true,
     isFullscreenBio: false,
+    closeBio: true, // close using x button
     // Stickies window
     isShownStickies: false,
     isFullscreenStickies: false,
@@ -31,8 +35,12 @@ export const store = new Vuex.Store({
     mailContent: '',
     mailSender: '',
     mailSubject: 'New Message',
+    closeMail: false, // close using x button
     // Simulator window
     isShownSimulator: false,
+    // Start Menu
+    isShownMenu: false,
+    closeMenu: false,
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -97,6 +105,24 @@ export const store = new Vuex.Store({
     toggleShownSimulator(state, shownBool) {
       state.isShownSimulator = shownBool
     },
+    toggleCloseNossaflex(state, closeBool) {
+      state.closeNossaflex = closeBool
+    },
+    toggleClosePhotos(state, closeBool) {
+      state.closePhotos = closeBool
+    },
+    toggleCloseBio(state, closeBool) {
+      state.closeBio = closeBool
+    },
+    toggleCloseMail(state, closeBool) {
+      state.closeMail = closeBool
+    },
+    toggleShownMenu(state, shownBool) {
+      state.isShownMenu = shownBool
+    },
+    toggleCloseMenu(state, closeBool) {
+      state.closeMenu = closeBool
+    }
   },
   actions: {
     
@@ -159,5 +185,17 @@ export const store = new Vuex.Store({
     isShownSimulator: state => {
       return state.isShownSimulator
     },
+    isCloseNossaflex: state => {
+      return state.closeNossaflex
+    },
+    isClosePhotos: state => {
+      return state.closePhotos
+    },
+    isCloseBio: state => {
+      return state.closeBio
+    },
+    isCloseMail: state => {
+      return state.closeMail
+    }
   }
 })

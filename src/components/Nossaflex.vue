@@ -1,15 +1,15 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenNossaflex}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')">
+        <div class="window" id="container" :class="{ fullscreen: $store.getters.isFullscreenNossaflex, close: !$store.getters.isShownNossaflex}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenNossaflex')" :class="$store.getters.activeWindow=='NOSSAFLEX' ? 'top-bar' : 'top-bar-deactivated'">
+                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/noss.webp"/>NOSSAFLEX</div>
                 <div class="triple-button">
-                    <div class="button-red" v-on:click="closeNoss"></div>
-                    <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenNossaflex')"></div>
+                    <div class="button-hide" v-on:click="minimizeNoss"><span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;"></span></div>
+                    <div class="button-expand" v-on:click="$store.commit('toggleFullscreenNossaflex')"><span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid"></span></div>
+                    <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closeNoss">×</div>
                 </div>
             </div>
-            <div class="bar"></div>
             <div class="content">
                 <div class="scroll-container" :class="{ expandedScrollContainer: $store.getters.isFullscreenNossaflex }">
                     <div class="hero"></div>
@@ -81,24 +81,58 @@
     cursor: auto !important;
 }
 
-.about-me {
+.window {
     min-height: 500px;
     min-width: 350px;
     height: 500px;
     width: 600px;
-    border-radius: 15px;
-    background: #F3F2F2;
+    background: rgb(195, 195, 195);
     overflow: hidden;
-    border: 1px solid #dadada;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
-    /* transition: all 0.5s ease; */
+    border-top: solid rgb(250, 250, 250) 2px;
+    border-left: solid rgb(250, 250, 250) 2px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    box-shadow: 1.5px 1.5px black;
     max-height: 100%;
+    border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
+    outline: rgb(222, 222, 222) 1px solid;
+}
+
+.button-expand, .button-close, .button-hide {
+    background: rgb(195, 195, 195);
+    border-top: solid rgb(250, 250, 250) 1px;
+    border-left: solid rgb(250, 250, 250) 1px;
+    border-right: solid rgb(90, 90, 90) 1px;
+    border-bottom: solid rgb(90, 90, 90) 1px;
+    box-shadow: 1px 1px black;
+    height: 16px;
+    width: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    margin-left: 2px;
+}
+
+.button-close:hover, .button-expand:hover, .button-hide:hover {
+    cursor: pointer;
+}
+
+.button-close:active, .button-expand:active, .button-hide:active {
+    border-radius: 0px;
+background: rgb(192, 192, 192);
+            box-shadow: none;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
 }
 
 @media only screen and (max-width: 600px) {
-    .about-me {
+    .window {
         min-width: 50vw;
         width: 90vw;
         max-width: 100vw;
@@ -119,21 +153,18 @@
     background-position: center center;
     background-size: 100%;
     background-repeat: no-repeat;
-    border-radius: 5px;
     border: 1px solid rgb(0, 0, 0, 0.1);
     background-image: url('../assets/Nossaflex/hero_light.webp');
 }
 
 .images {
     width: 100%;
-    border-radius: 5px;
     height: 350px ;
     object-fit: cover;
 }
 
 .images-full {
     width: 100%;
-    border-radius: 5px;
     height: auto ;
     object-fit: cover;
 }
@@ -188,17 +219,23 @@
 
 .top-bar {
     display: flex;
-    height: 40px;
-    width: 100%;
-    background: #ECECED;
+    height: 25px;
+    width: auto;
+    background: rgb(0, 0, 124);
     z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.top-bar-deactivated {
+    background: rgb(123, 125, 123);
 }
 
 .triple-button {
     display: flex;
-    padding-left: 15px;
     align-items: center;
-    width: 50px;
     justify-content: space-between;
 }
 
@@ -337,38 +374,6 @@
 .resizer {
     position: absolute;
 }
-
-@media (prefers-color-scheme: dark) {
-    .about-me {
-        border: 1px solid #0B0A0B;
-        background: #1C1C1D;
-    }
-    .top-bar {
-        background: #333333;
-    }
-    .bar {
-        background: #0B0A0B
-    }
-    .hello {
-        color: white
-    }
-    .textarea-content {
-        caret-color: white;
-        color: white;
-    }
-    .header {
-        color: white;
-    }
-    .paragraph {
-        color: white;
-    }
-    .heading {
-        color: white;
-    }
-    .hero {
-        background-image: url('../assets/Nossaflex/hero_dark.webp');
-    }
-}
 </style>
 
 <script>
@@ -411,7 +416,7 @@ export default {
                 height: `${this.h}px`,
                 width: `${this.w}px`,
                 transform: `translate(${this.x}px, ${this.y}px)`,
-                '--fullscreen': window.innerHeight - 30 + "px"
+                '--fullscreen': window.innerHeight - 40 + "px"
             };
         }
     },
@@ -450,10 +455,16 @@ export default {
             document.onmouseup = null
             document.onmousemove = null
         },
-        closeNoss(e) {
+        minimizeNoss(e) {
             e.stopPropagation()
             this.$store.commit('toggleShownNossaflex', false)
             this.$store.commit('changeActiveWindow', 'Finder')
+        },
+        closeNoss(e) {
+            console.log('close')
+            e.stopPropagation()
+            this.$store.commit('toggleCloseNossaflex', false)
+            this.$store.commit('toggleShownNossaflex', false)
         }
     },
     mounted: function() {

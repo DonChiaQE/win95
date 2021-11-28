@@ -1,17 +1,34 @@
 <template>
-    <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}">
+    <!-- <div class="wrapper" :class="{hidden: $store.getters.isFullscreenNossaflex && $store.getters.isShownNossaflex || $store.getters.isFullscreenPhotos && $store.getters.isShownPhotos || $store.getters.isFullscreenStickies && $store.getters.isShownStickies}"> -->
+    <div class="wrapper">  
           <div class="bar-container">
-                <div alt="start" class="start-menu">
-                    <img class="start-icon" src="../assets/win95.png"/>
-                    <div style="padding-left: 3px; font-size: 0.9rem; font-weight: bold;">Start</div>
+                <div alt="start" class="start-menu" v-on:click="showMenu" :class="$store.getters.activeWindow=='Menu' ? 'start-menu-depressed' : 'start-menu'">
+                    <div class="" :class="$store.getters.activeWindow=='Menu' ? 'border' : 'container-border'">
+                        <img class="start-icon" src="../assets/win95.png"/>
+                        <div style="padding-left: 3px; font-size: 0.9rem; font-weight: bold;">Start</div>
+                    </div>
                 </div>
             <div class="icon-bar">
-              <div alt="Biography" class="icon-bio icon" v-on:click="showBio">Biography</div>
-              <div alt="NOSSAFLEX" class="icon-nossaflex icon" v-on:click="showNossaflex">NOSSAFLEX</div>
-              <div alt="Photos" class="icon-photo icon" v-on:click="showPhotos">Photos</div>
-              <div alt="Mail" class="icon-mail icon" v-on:click="showMail">Mail</div>
+                    <div alt="Biography" class="icon-bio" v-on:click="showBio" :class="[$store.getters.activeWindow=='Bio' ? 'icon-depressed' : 'icon', $store.getters.isCloseBio ? '' : 'hidden']"> 
+                        <img class="icon-image" src="../assets/win95Icons/bio.png"/>
+                        Biography
+                    </div>
+                    
+                    <div alt="NOSSAFLEX" class="icon-nossaflex" v-on:click="showNossaflex" :class="[$store.getters.activeWindow=='NOSSAFLEX' ? 'icon-depressed' : 'icon', $store.getters.isCloseNossaflex ? '' : 'hidden']">
+                        <img class="icon-image" src="../assets/win95Icons/noss.webp"/>
+                        NOSSAFLEX
+                    </div>
+        
+                    <div alt="Photos" class="icon-photo " v-on:click="showPhotos" :class="[$store.getters.activeWindow=='Photos' ? 'icon-depressed' : 'icon', $store.getters.isClosePhotos ? '' : 'hidden']">
+                        <img class="icon-image" src="../assets/win95Icons/photos.png"/>
+                        Photos
+                    </div>
+                    
+                    <div alt="Mail" class="icon-mail " v-on:click="showMail" :class="[$store.getters.activeWindow=='Mail' ? 'icon-depressed' : 'icon', $store.getters.isCloseMail ? '' : 'hidden']">
+                        <img class="icon-image" src="../assets/win95Icons/mail.png"/>
+                        Mail
+                    </div>
               <!-- <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div> -->
-              <div alt="Github" onclick="window.location='https://github.com/dhs17y2adonchia'" class="icon-github icon">GitHub</div>
               <!-- <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div> -->
             </div>
             <div alt="time" class="time">
@@ -65,7 +82,7 @@
     border-bottom: solid rgb(90, 90, 90) 1.5px;
     border-right: solid rgb(90, 90, 90) 1.5px;
     background: rgb(192, 192, 192);
-    border-radius: 0.5px;
+
     display: flex;
     /* justify-content: space-between; */
     justify-content: center;
@@ -77,42 +94,99 @@
 }
 
 .start-menu:active {
-background: rgb(192, 192, 192);
-            box-shadow: none;
+    background: rgb(192, 192, 192);
+    box-shadow: none;
     border-top: solid rgb(0, 0, 0) 1.5px;
     border-left: solid rgb(0, 0, 0) 1.5px;
     border-bottom: solid rgb(250, 250, 250) 1.5px;
     border-right: solid rgb(250, 250, 250) 1.5px;
 }
 
-@media only screen and (max-width: 700px) { 
-    /* .bar-container {
-        width: 100vw !important;
-        border-radius: 4vw;
-        margin-left: 4vw;
-        margin-right: 4vw;
-        height: 10vw !important;
-        padding-top: 2vw;
-        padding-bottom: 2vw;
-    }
-    .icon {
-        width: 8vw !important;
-        height: 8vw !important;
-        margin-left: 1vw !important;
-        margin-right: 1vw !important;
-        border-radius: 2vw !important;
-    }
-    .icon-special {
-        width: 8.5vw !important;
-        height: 8.5vw !important;
-        margin-left: 1vw !important;
-        margin-right: 1vw !important;
-        border-radius: 2vw !important;
-    } */
+.start-menu-depressed {
+    box-shadow: none;
+    background: repeating-conic-gradient(rgb(189, 190, 189) 0% 25%, rgb(255, 255, 255) 0% 50%) 
+              50% / 2px 2px;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
 
+.container-border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.border {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: black dotted 1px;
+}
+
+.bar {
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-depressed {
+    width: 100px;
+    height: 23px;
+    border-radius: 10px;
+    margin-left: 2px;
+    margin-right: 2px;
+    border-radius: 0.5px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 5px;
+    padding-right: 5px;
+    font-weight: bold;
+    font-size: 0.7rem;
+    background: rgb(192, 192, 192);
+    box-shadow: none;
+    background: repeating-conic-gradient(rgb(189, 190, 189) 0% 25%, rgb(255, 255, 255) 0% 50%) 
+              50% / 2px 2px;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
+.icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    background: white;
+    justify-content: center;
+    align-items: center;
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.icon:hover {
+    cursor: pointer;
+}
+
+.icon-image {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+@media only screen and (max-width: 700px) { 
     .icon {
         width: auto !important; 
     }
+    .icon-depressed {
+        width: auto !important; 
+    }
+    .icon-image {
+    width: 0px;
+    height: 0px;
+    margin-right: 0px;
+}
 }
 
 .wrapper {
@@ -126,7 +200,6 @@ background: rgb(192, 192, 192);
 .icon-bar {
     width: 100%;
     height: 100%;
-    /* background: blue; */
     display: flex;
     align-items: center;
 }
@@ -164,89 +237,6 @@ background: rgb(192, 192, 192);
     border-bottom: solid rgb(250, 250, 250) 1.5px;
     border-right: solid rgb(250, 250, 250) 1.5px;
 }
-
-.icon-special {
-    margin-top: 3px;
-    width: 49px;
-    height: 49px;
-    border-radius: 10px;
-    justify-content: center;
-    align-items: center;
-    margin-left: 10px;
-    margin-right: 10px;
-    background: none;
-}
-
-.icon-special:hover{
-    cursor: pointer;
-}
-
-.icon-wip {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.icon-wip:hover {
-    cursor: not-allowed;
-}
-
-.icon-nossaflex {
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.icon-photo {
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.icon-mail {
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.icon-stickies {
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-.icon-github {
-
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-
-/* .icon-bio {
-    background-image: url('../assets/Icons/Bio.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-} */
-
-.icon-simulator {
-    background-image: url('../assets/Icons/Simulator.webp');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: bottom;
-}
-
-@media (prefers-color-scheme: dark) {
-    .icon-nossaflex {
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
-}
-}
 </style>
 
 <script>
@@ -280,7 +270,6 @@ export default {
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'noss')
             }, 1);
-            
         },
         showPhotos() {
             this.$store.commit('changeActiveWindow', 'Photos')
@@ -289,7 +278,7 @@ export default {
                 this.$store.commit('zIndexIncrement', 'photos')
             }, 1);
         },
-        showStickies() {
+        showStickies() { //deprecated
             this.$store.commit('changeActiveWindow', 'Stickies')
             this.$store.commit('toggleShownStickies', true)
             setTimeout(() => {  
@@ -310,11 +299,18 @@ export default {
                 this.$store.commit('zIndexIncrement', 'bio')
             }, 1);
         },
-        showSimulator() {
+        showSimulator() { // deprecated
             this.$store.commit('changeActiveWindow', 'Simulator')
             this.$store.commit('toggleShownSimulator', true)
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'simulator')
+            }, 1);
+        },
+        showMenu() {
+            this.$store.commit('changeActiveWindow', 'Menu')
+            this.$store.commit('toggleShownMenu', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'menu')
             }, 1);
         }
     },

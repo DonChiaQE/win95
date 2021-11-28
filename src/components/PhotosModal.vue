@@ -1,20 +1,17 @@
 /* eslint-disable */
 <template>
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" :class="{ fullscreen: $store.getters.isFullscreenPhotos}">
-        <div class="about-me" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
-            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')">
-                <!-- <div class="triple-button">
-                    <div class="button-red" v-on:click="closeBio"></div>
-                    <div class="button-yellow"></div>
-                    <div class="button-green" v-on:click="$store.commit('toggleFullscreenBio')"></div>
-                </div> -->
-                <div style="color: white; margin-left: 3px;">Photos</div>
-                <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closePhotos">×</div>
+        <div class="window" id="container" :class="{ fullscreen: $store.getters.isFullscreenPhotos, close: !$store.getters.isShownPhotos}">
+            <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenPhotos')" :class="$store.getters.activeWindow=='Photos' ? 'top-bar' : 'top-bar-deactivated'">
+                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/photos.png"/>Photos</div>
+                <div class="triple-button">
+                    <div class="button-hide" v-on:click="minimizePhotos"><span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;"></span></div>
+                    <div class="button-expand" v-on:click="$store.commit('toggleFullscreenPhotos')"><span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid"></span></div>
+                    <div style="margin-right: 3px; padding-left: 1px;" class="button-close" v-on:click="closePhotos">×</div>
+                </div>
             </div>
-            <div class="bar"></div>
             <div class="content">
-                <div class="scroll-container">
-                    <!-- <div class="header">Photos</div> -->
+                <div class="scroll-container"> <!-- change to photo container from diego website -->
                     <div class="square-container" :class="{ gridFullscreen: $store.getters.isFullscreenPhotos }">
                         <div class="square" :class="{ squareFullscreen: $store.getters.isFullscreenPhotos }" v-for="i in 43" v-bind:key="i" style="padding: 0;margin:0;">
                             <img data-fancybox="gallery" :src="require(`../assets/PhotosWebp/image-${i}.webp`)" :href="require(`../assets/PhotosWebpExpanded/image-${i}.webp`)"/>
@@ -22,10 +19,6 @@
                     </div>
                 </div>
             </div>
-            <!-- <div class="resizer resizer-b"></div>
-                                                                                <div class="resizer resizer-l"></div>
-                                                                                <div class="resizer resizer-t"></div>
-                                                                                <div class="resizer resizer-r"></div> -->
         </div>
     </interact>
 </template>
@@ -68,7 +61,7 @@ img:hover {
     cursor: auto !important;
 }
 
-.about-me {
+.window {
     min-height: 500px;
     min-width: 350px;
     height: 500px;
@@ -84,9 +77,10 @@ img:hover {
     border-radius: 0.5px;
     max-width: 100%;
     align-items: flex-end;
+    outline: rgb(222, 222, 222) 1px solid;
 }
 
-.button-close {
+.button-expand, .button-close, .button-hide {
     background: rgb(195, 195, 195);
     border-top: solid rgb(250, 250, 250) 1px;
     border-left: solid rgb(250, 250, 250) 1px;
@@ -100,13 +94,14 @@ img:hover {
     align-items: center;
     font-size: 20px;
     font-weight: bold;
+    margin-left: 2px;
 }
 
-.button-close:hover {
+.button-close:hover, .button-expand:hover, .button-hide:hover {
     cursor: pointer;
 }
 
-.button-close:active {
+.button-close:active, .button-expand:active, .button-hide:active {
     border-radius: 0px;
 background: rgb(192, 192, 192);
             box-shadow: none;
@@ -124,7 +119,7 @@ background: rgb(192, 192, 192);
 }
 
 @media only screen and (max-width: 600px) {
-    .about-me {
+    .window {
         min-width: 50vw;
         width: 90vw;
         max-width: 100vw;
@@ -177,18 +172,22 @@ background: rgb(192, 192, 192);
 .top-bar {
     display: flex;
     height: 25px;
-    width: 100%;
+    width: auto;
     background: rgb(0, 0, 124);
     z-index: 10;
     align-items: center;
     justify-content: space-between;
+    flex-direction: row;
+    margin: 2px;
+}
+
+.top-bar-deactivated {
+    background: rgb(123, 125, 123);
 }
 
 .triple-button {
     display: flex;
-    padding-left: 15px;
     align-items: center;
-    width: 50px;
     justify-content: space-between;
 }
 
@@ -333,32 +332,6 @@ background: rgb(192, 192, 192);
 .resizer {
     position: absolute;
 }
-
-@media (prefers-color-scheme: dark) {
-    .about-me {
-        border: 1px solid #0B0A0B;
-        background: #1C1C1D;
-    }
-    .top-bar {
-        background: #333333;
-    }
-    .bar {
-        background: #0B0A0B
-    }
-    .hello {
-        color: white
-    }
-    .textarea-content {
-        caret-color: white;
-        color: white;
-    }
-    .header {
-        color: white;
-    }
-    .paragraph {
-        color: white;
-    }
-}
 </style>
 
 <script>
@@ -442,10 +415,15 @@ export default {
         onClickLog() {
             alert("Hello! I am an alert box!!");
         },
-        closePhotos(e) {
+        minimizePhotos(e) {
             e.stopPropagation()
             this.$store.commit('toggleShownPhotos', false)
             this.$store.commit('changeActiveWindow', 'Finder')
+        },
+        closePhotos(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleClosePhotos', false)
+            this.$store.commit('toggleShownPhotos', false)
         }
     },
     mounted: function() {
