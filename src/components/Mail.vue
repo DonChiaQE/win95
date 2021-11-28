@@ -87,6 +87,7 @@ button {
     font-family: "MS Sans Serif";
     src: url('~@/assets/fonts/MS-Sans-Serif.ttf');
     padding: 0;
+    color: black;
 }
 
 hr {
@@ -215,6 +216,7 @@ input {
 }
 
 textarea {
+    margin: 0;
     flex-grow: 0.76;
     background: none;
     border-top: solid rgb(0, 0, 0) 1.5px;
@@ -230,6 +232,7 @@ textarea {
     color: black;
     font-family: Avenir, Helvetica, Arial, sans-serif;
     font-size: 14px;
+    border-radius: 0;
 }
 
 .textareaFullscreen {
@@ -279,13 +282,6 @@ textarea {
         min-width: 50vw;
         width: 90vw;
         max-width: 100vw;
-    }
-    .expandedScrollContainer {
-        padding-left: 5vw;
-        padding-right: 5vw;
-    }
-    .content {
-        padding-left: 25px !important;
     }
 }
 

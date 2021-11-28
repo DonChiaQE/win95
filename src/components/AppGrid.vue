@@ -1,6 +1,6 @@
 <template>
     <div class="app-grid">
-        <button class="app" v-on:dblclick="openBio">
+        <button class="app" v-touch:tap="openBio" v-on:dblclick="openBio">
             <img class="icon app-bio" src="../assets/win95Icons/bio.png"/>
             <div class="border">
                 <div class="icon-text">Biography</div>
@@ -14,19 +14,19 @@
             </div> 
             </a> 
         </button>
-        <button class="app" v-on:dblclick="openPhotos">
+        <button class="app" v-touch:tap="openPhotos" v-on:dblclick="openPhotos">
             <img class="icon app-photos" src="../assets/win95Icons/photos.png"/>
             <div class="border">
                 <div class="icon-text">Photos</div>
             </div>
         </button>
-        <button class="app" v-on:dblclick="openNoss">
+        <button class="app" v-touch:tap="openNoss" v-on:dblclick="openNoss">
             <img class="icon app-noss" src="../assets/win95Icons/noss.webp"/>
             <div class="border">
                 <div class="icon-text">NOSSAFLEX</div>
             </div>
         </button>
-        <button class="app" v-on:dblclick="openMail">
+        <button class="app" v-touch:tap="openMail" v-on:dblclick="openMail">
             <img class="icon app-mail" src="../assets/win95Icons/mail.png"/>
             <div class="border">
                 <div class="icon-text">Mail</div>

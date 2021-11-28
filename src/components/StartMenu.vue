@@ -1,5 +1,5 @@
 <template>
-    <div class="menu">
+    <div class="menu" style="z-index: 1000000;">
         <div class="sidebar">
             <img class="sidebar-image" src="../assets/sidebar-image.png"/>
         </div>
@@ -87,6 +87,16 @@ a {
 
 .sidebar-image {
     width: 100%;
+}
+
+@media only screen and (max-width: 600px) {
+    .sidebar {
+        width: 25px;
+        background: rgb(123, 125, 123);
+        height: 100%;
+        display: flex;
+        align-items: flex-end;
+    }
 }
 
 .divider {
