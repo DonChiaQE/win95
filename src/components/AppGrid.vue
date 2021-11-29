@@ -6,13 +6,13 @@
                 <div class="icon-text">Biography</div>
             </div>
         </button>
-        <button class="app">
-            <a href="/files/don_chia_resume.pdf" target="_blank">
+        <button class="app" v-touch:tap="openResume" v-on:dblclick="openResume">
+            <!-- <a href="/files/don_chia_resume.pdf" target="_blank"> -->
             <img class="icon app-github" src="../assets/iPhone-Icons/resume.png"/>
             <div class="border">
                 <div class="icon-text">Résumé</div>
             </div> 
-            </a> 
+            <!-- </a>  -->
         </button>
         <button class="app" v-touch:tap="openPhotos" v-on:dblclick="openPhotos">
             <img class="icon app-photos" src="../assets/win95Icons/photos.png"/>
@@ -32,7 +32,7 @@
                 <div class="icon-text">Mail</div>
             </div>  
         </button>
-        <button class="app" >
+        <button class="app">
             <a href="https://github.com/dhs17y2adonchia" target="_blank">
             <img class="icon app-github" src="../assets/win95Icons/Github.webp"/>
             <div class="border">
@@ -137,6 +137,15 @@ export default {
             this.$store.commit('changeActiveWindow', 'NOSSAFLEX')
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'noss')
+            }, 1);
+        },
+        openResume(e) {
+            e.stopPropagation()
+            this.$store.commit('toggleCloseResume', true)
+            this.$store.commit('toggleShownResume', true)
+            this.$store.commit('changeActiveWindow', 'Resume')
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'resume')
             }, 1);
         }
     }

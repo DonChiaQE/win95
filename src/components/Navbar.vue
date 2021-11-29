@@ -28,6 +28,15 @@
                         <img class="icon-image" src="../assets/win95Icons/mail.png"/>
                         Mail
                     </div>
+
+                    <div alt="Resume" class="icon-resume " v-on:click="showResume" :class="[$store.getters.activeWindow=='Resume' ? 'icon-depressed' : 'icon', $store.getters.isCloseResume ? '' : 'hidden']">
+                        <img class="icon-image" src="../assets/iPhone-Icons/resume.png"/>
+                        Résumé
+                    </div>
+                    <div alt="Resume" class="icon-resume " v-on:click="showMobileAlert" :class="[$store.getters.activeWindow=='MobileAlert' ? 'icon-depressed' : 'icon', $store.getters.isMobileAlert ? '' : 'hidden']">
+                        <img class="icon-image" src="../assets/warning.png"/>
+                        Warning
+                    </div>
               <!-- <div alt="Simulator" class="icon-simulator icon-special" v-on:click="showSimulator"></div> -->
               <!-- <div alt="Stickies" class="icon-stickies icon" v-on:click="showStickies"></div> -->
             </div>
@@ -313,6 +322,20 @@ export default {
             this.$store.commit('toggleShownMenu', true)
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', 'menu')
+            }, 1);
+        },
+        showResume() {
+            this.$store.commit('changeActiveWindow', 'Resume')
+            this.$store.commit('toggleShownResume', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'resume')
+            }, 1);
+        },
+        showMobileAlert() {
+            this.$store.commit('changeActiveWindow', 'MobileAlert')
+            this.$store.commit('toggleMobileAlert', true)
+            setTimeout(() => {  
+                this.$store.commit('zIndexIncrement', 'mobilealert')
             }, 1);
         }
     },

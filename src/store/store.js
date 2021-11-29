@@ -17,6 +17,10 @@ export const store = new Vuex.Store({
     isShownPhotos: false, // hide using - button
     isFullscreenPhotos: false,
     closePhotos: false, // close using x button
+    // Resume window
+    isShownResume: false, // hide using - button
+    isFullscreenResume: false,
+    closeResume: false, // close using x button
     // Colorization window
     isShownColorization: false,
     isFullscreenColorization: false,
@@ -41,6 +45,8 @@ export const store = new Vuex.Store({
     // Start Menu
     isShownMenu: false,
     closeMenu: false,
+    // Mobile User
+    mobileAlert: false
   },
   mutations: {
     toggleShownNossaflex(state, shownBool) {
@@ -69,6 +75,12 @@ export const store = new Vuex.Store({
     },
     toggleShownBio(state, shownBool) {
       state.isShownBio = shownBool
+    },
+    toggleFullscreenResume(state) {
+      state.isFullscreenResume = !state.isFullscreenResume
+    },
+    toggleShownResume(state, shownBool) {
+      state.isShownResume = shownBool
     },
     toggleFullscreenBio(state) {
       state.isFullscreenBio = !state.isFullscreenBio
@@ -111,6 +123,9 @@ export const store = new Vuex.Store({
     toggleClosePhotos(state, closeBool) {
       state.closePhotos = closeBool
     },
+    toggleCloseResume(state, closeBool) {
+      state.closeResume = closeBool
+    },
     toggleCloseBio(state, closeBool) {
       state.closeBio = closeBool
     },
@@ -122,6 +137,9 @@ export const store = new Vuex.Store({
     },
     toggleCloseMenu(state, closeBool) {
       state.closeMenu = closeBool
+    },
+    toggleMobileAlert(state, shownBool) {
+      state.mobileAlert = shownBool
     }
   },
   actions: {
@@ -157,6 +175,12 @@ export const store = new Vuex.Store({
     },
     isFullscreenBio: state => {
       return state.isFullscreenBio
+    },
+    isShownResume: state => {
+      return state.isShownResume
+    },
+    isFullscreenResume: state => {
+      return state.isFullscreenResume
     },
     zIndex: state => {
       return state.zIndex
@@ -196,6 +220,12 @@ export const store = new Vuex.Store({
     },
     isCloseMail: state => {
       return state.closeMail
+    },
+    isCloseResume: state => {
+      return state.closeResume
+    },
+    isMobileAlert: state => {
+      return state.mobileAlert
     }
   }
 })

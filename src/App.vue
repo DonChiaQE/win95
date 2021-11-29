@@ -3,11 +3,13 @@
         <!-- <TopNav /> -->
         <div class="screen" id="screen" style="position: relative; z-index: 100;" v-on:click="deinitWindows">
             <AppGrid class="app-grid" style="position: absolute;"></AppGrid>
+            <MobileAlert id="mobilealert" style="position: absolute; bottom: 40%; left: 5vw" @click.native="focusMobileAlert"/>
             <StartMenu v-if="$store.getters.activeWindow=='Menu'" style="position: absolute; z-index: 9999; bottom: 0; left: 0;"></StartMenu>
-            <nossaflex id="noss" :class="{fullscreen: $store.getters.isFullscreenNossaflex}" v-if="$store.getters.isShownNossaflex" style=" position: absolute;" @click.native="focusNoss" />
-            <photos-modal id="photos" :class="{fullscreen: $store.getters.isFullscreenPhotos}" v-if="$store.getters.isShownPhotos" style=" position: absolute;" @click.native="focusPhotos" />
+            <Resume id="resume" :class="{fullscreen: $store.getters.isFullscreenResume}" v-if="$store.getters.isShownResume" style=" position: absolute; bottom: 10%; left: 20px;" @click.native="focusResume" />
+            <nossaflex id="noss" :class="{fullscreen: $store.getters.isFullscreenNossaflex}" v-if="$store.getters.isShownNossaflex" style=" position: absolute; bottom: 8%; left: 18px" @click.native="focusNoss" />
+            <photos-modal id="photos" :class="{fullscreen: $store.getters.isFullscreenPhotos}" v-if="$store.getters.isShownPhotos" style=" position: absolute; bottom: 6%; left: 3vw" @click.native="focusPhotos" />
             <stickies id="stickies" :class="{fullscreen: $store.getters.isFullscreenStickies}" v-if="$store.getters.isShownStickies" style=" position: absolute;" @click.native="focusStickies" />
-            <mail id="mail" :class="{fullscreen: $store.getters.isFullscreenMail}" v-if="$store.getters.isShownMail" style=" position: absolute;" @click.native="focusMail" />
+            <mail id="mail" :class="{fullscreen: $store.getters.isFullscreenMail}" v-if="$store.getters.isShownMail" style=" position: absolute; bottom: 4%; left: 3vw" @click.native="focusMail" />
             <bio id="bio" :class="{fullscreen: $store.getters.isFullscreenBio}" v-if="$store.getters.isShownBio" style=" position: absolute; top: 5%; left: 5vw" @click.native="focusBio" />
             <simulator id="simulator" v-if="$store.getters.isShownSimulator" style=" position: absolute; left:25%;" @click.native="focusSimulator" />
             <colorization id="colorization" v-if="$store.getters.isShownColorization" style="position: absolute;" @click.native="focusColorization" />
@@ -28,6 +30,8 @@ import Simulator from './components/Simulator.vue'
 import Colorization from './components/Colorization.vue'
 import AppGrid from './components/AppGrid.vue'
 import StartMenu from './components/StartMenu.vue'
+import Resume from './components/Resume.vue'
+import MobileAlert from './components/MobileAlert.vue'
 
 export default {
     name: 'App',
@@ -47,7 +51,9 @@ export default {
         Simulator,
         Colorization,
         AppGrid,
-        StartMenu
+        StartMenu,
+        Resume,
+        MobileAlert
     },
     methods: {
         focusPhotos() {
@@ -77,6 +83,14 @@ export default {
         focusColorization() {
             this.$store.commit('changeActiveWindow', 'Colorization')
             this.$store.commit('zIndexIncrement', 'colorization')
+        },
+        focusResume() {
+            this.$store.commit('changeActiveWindow', 'Resume')
+            this.$store.commit('zIndexIncrement', 'resume')
+        },
+        focusMobileAlert() {
+            this.$store.commit('changeActiveWindow', 'MobileAlert')
+            this.$store.commit('zIndexIncrement', 'mobilealert')
         },
         deinitWindows() {
             if (this.$store.getters.activeWindow=='Menu') {
@@ -206,5 +220,21 @@ body {
     width: 15px;
     height: 15px;
     margin-right: 5px;
+}
+
+::-webkit-scrollbar {
+  width: 15px;
+  background: repeating-conic-gradient(rgb(189, 190, 189) 0% 25%, rgb(255, 255, 255) 0% 50%) 
+              50% / 2px 2px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgb(189, 190, 189);
+  /* box-shadow: 1.5px 1.5px black; */
+    border-top: solid rgb(250, 250, 250) 1.5px;
+    border-left: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    outline: rgb(219,219,219);
 }
 </style>
