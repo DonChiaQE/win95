@@ -4,7 +4,7 @@
             <img class="sidebar-image" src="../assets/sidebar-image.png"/>
         </div>
         <div class="socials">
-            <a href="/files/resume.pdf" target="_blank">
+            <a href="https://www.instagram.com/__dontax__/" target="_blank">
             <div class="bar">
                 <img class="social-image" src="../assets/iPhone-Icons/Instagram.webp"/>
                 <div class="social-text"><u>I</u>nstagram</div>
