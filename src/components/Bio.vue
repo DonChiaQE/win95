@@ -3,7 +3,7 @@
     <interact draggable :dragOption="dragOption" class="resize-drag" :style="style" @dragmove="dragmove" @resizemove="resizemove" :class="{ fullscreen: $store.getters.isFullscreenBio}">
         <div class="window" id="container" :class="{ fullscreen: $store.getters.isFullscreenBio, close: !$store.getters.isShownBio}">
             <div class="top-bar" id="top-bar" v-on:dblclick="$store.commit('toggleFullscreenBio')" :class="$store.getters.activeWindow=='Bio' ? 'top-bar' : 'top-bar-deactivated'">
-                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/bio.png"/>Welcome</div>
+                <div style="color: white; margin-left: 3px; display: flex; align-items: center;"><img class="icon-image" src="../assets/win95Icons/bio.png"/>Biography</div>
                 <div class="triple-button">
                     <div class="button-hide" v-on:click="minimizeBio"><span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;"></span></div>
                     <div class="button-expand" v-on:click="$store.commit('toggleFullscreenBio')"><span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid"></span></div>
