@@ -123,6 +123,11 @@ a {
     padding: 5px 10px 5px 10px;
     align-items: center;
 }
+
+.bar:hover {
+    background: rgb(0, 0, 118);
+    color: white;
+}
 </style>
 <script>
 export default {
