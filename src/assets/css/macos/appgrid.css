@@ -1,0 +1,87 @@
+/*-------------------------------------------*\
+    Grid 
+\*-------------------------------------------*/
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 0;
+    margin-top: 10px;
+}
+
+/*-------------------------------------------*\
+    Icons
+\*-------------------------------------------*/
+
+.icon {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: center;
+    text-align: center;
+    padding: 6px;
+    width: 80%;
+}
+
+.icon-text {
+    color: white;
+    font-weight: bold;
+    font-size: 12px;
+    padding: 3px;
+    margin: 4px 1px 1px 1px;
+    text-shadow: 1px 1px rgb(0,0,0, 0.4);
+}
+
+.border {
+    margin-top: 8px;
+}
+
+.icon-image {
+    width: 50px;
+    height: 50px;
+}
+
+.icon:focus .icon-image {
+    background-color: rgb(104, 104, 104, 0.4);
+    border-radius: 4px;
+    padding: 6px;
+    margin: -6px -6px -6px -6px;
+    
+}
+
+.icon:focus .icon-text {
+    background: rgb(41, 97, 217);
+    border-radius: 2px;
+    color: white;
+    padding: 3px;
+    margin: 4px 1px 1px 1px;
+}
+
+.icon:focus .border {
+
+}
+
+/*-------------------------------------------*\
+    CSS Normalisation 
+\*-------------------------------------------*/
+
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    outline: inherit;
+}

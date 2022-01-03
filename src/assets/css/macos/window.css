@@ -1,0 +1,93 @@
+/*-------------------------------------------*\
+    Windows/Display
+\*-------------------------------------------*/
+.window-style {
+    border-radius: 15px;
+    background: #F3F2F2;
+    overflow: hidden;
+    border: 1px solid #dadada;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.15), 0 6px 20px 0 rgba(0, 0, 0, 0.14);
+    /* transition: all 0.5s ease; */
+    max-height: 100%;
+    max-width: 100%;
+    align-items: flex-end;
+}
+
+/*-------------------------------------------*\
+    Buttons 
+\*-------------------------------------------*/
+
+.minimize-button {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #f5bf50;
+}
+
+.expand-button {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #62c454;
+}
+
+.close-button {
+    height: 12px;
+    width: 12px;
+    border-radius: 50%;
+    background: #ed6a06;
+
+}
+
+.triple-button {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-left: 15px;
+    align-items: center;
+    width: 50px;
+    justify-content: space-between;
+    padding-top: 15px;
+    padding-bottom: 15px;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+/*-------------------------------------------*\
+    Top Bar
+\*-------------------------------------------*/
+
+.top-bar {
+    display: flex;
+    height: 40px;
+    width: 100%;
+    background: #ECECED;
+    z-index: 10;
+    border-bottom: #dadada 1px solid;
+}
+
+.top-bar:hover {
+    cursor: default;
+}
+
+.window-name {
+    display: none;
+}
+
+/*-------------------------------------------*\
+    CSS Normalisation 
+\*-------------------------------------------*/
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    outline: inherit;
+}
+
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}

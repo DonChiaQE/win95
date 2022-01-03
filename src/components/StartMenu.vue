@@ -1,49 +1,49 @@
 <template>
     <div class="menu" style="z-index: 1000000;">
         <div class="sidebar">
-            <img class="sidebar-image" src="../assets/sidebar-image.png"/>
+            <img class="sidebar-image" src="@/assets/sidebar-image.png"/>
         </div>
         <div class="socials">
             <a href="https://www.instagram.com/__dontax__/" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Instagram.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Instagram.webp"/>
                 <div class="social-text"><u>I</u>nstagram</div>
             </div>
             </a>
             <a href="https://www.reddit.com/user/satoshigekkouga2303" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Reddit.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Reddit.webp"/>
                 <u>R</u>eddit
             </div>
             </a>
             <a href="https://www.linkedin.com/in/don-chia-0b518b160/" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Linkedin.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Linkedin.webp"/>
                 <u>L</u>inkedIn
             </div>
             </a>
             <a href="https://twitter.com/lizarDON2303" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Twitter.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Twitter.webp"/>
                 <u>T</u>witter
             </div>
             </a>
             <a href="https://github.com/dhs17y2adonchia" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Github.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Github.webp"/>
                 <u>G</u>itHub
             </div>
             </a>
             <div class="divider"></div>
             <a href="/files/don_chia_resume.pdf" target="_blank">
                 <div class="bar">
-                    <img class="social-image" src="../assets/iPhone-Icons/resume.png"/>
+                    <img class="social-image" src="@/assets/win95Icons/resume.png"/>
                     <u>R</u>ésumé
                 </div>
             </a>
             <a href="https://apps.apple.com/app/nossaflex/id1523558285" target="_blank">
             <div class="bar">
-                <img class="social-image" src="../assets/iPhone-Icons/Nossaflex.webp"/>
+                <img class="social-image" src="@/assets/iPhone-Icons/Nossaflex.webp"/>
                 <u>N</u>OSSAFLEX
             </div>
             </a>

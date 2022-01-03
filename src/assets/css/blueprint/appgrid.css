@@ -1,0 +1,76 @@
+/*-------------------------------------------*\
+    Grid 
+\*-------------------------------------------*/
+
+.grid-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    width: 0;
+    margin-top: 10px;
+}
+
+/*-------------------------------------------*\
+    Icons
+\*-------------------------------------------*/
+
+.icon {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    align-items: center;
+    text-align: center;
+    width: 80%;
+}
+
+.icon-text {
+    color: black;
+    margin: 1px;
+}
+
+.border {
+    margin-top: 8px;
+}
+
+.icon-image {
+    width: 50px;
+    height: 50px;
+}
+
+.icon:focus .icon-image {
+    filter: grayscale(100%) brightness(30%) sepia(100%) hue-rotate(-180deg) saturate(400%) contrast(0.9);
+}
+
+.icon:focus .icon-text {
+    background: rgb(0, 0, 118);
+    color: white;
+    margin: 0px;
+}
+
+.icon:focus .border {
+    border: rgb(255, 255, 148) dotted 1px;
+}
+
+/*-------------------------------------------*\
+    CSS Normalisation 
+\*-------------------------------------------*/
+
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
+
+li {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    outline: inherit;
+}

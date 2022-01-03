@@ -1,0 +1,14 @@
+#app {
+    font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important; 
+    font-weight: 400 !important;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-image: url('../../background/light.webp');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

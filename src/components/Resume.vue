@@ -152,7 +152,6 @@ a {
 
 .frame {
     width: 100%;
-    height: 95%;
 }
 
 .button-expand, .button-close, .button-hide {

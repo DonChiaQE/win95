@@ -1,0 +1,92 @@
+/*-------------------------------------------*\
+    Windows/Display
+\*-------------------------------------------*/
+.window-style {
+    background: #70AFDE;
+    border: solid #5B6DCD 1px;
+    border-radius: 8px;
+}
+
+/*-------------------------------------------*\
+    Buttons 
+\*-------------------------------------------*/
+
+.minimize-button {
+    width: 12px;
+    height: 12px;
+    background-color: yellow;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.expand-button {
+    width: 12px;
+    height: 12px;
+    background-color: green;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.close-button {
+    width: 12px;
+    height: 12px;
+    background-color: red;
+    margin: 5px;
+    border-radius: 50%;
+}
+
+.triple-button {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+/*-------------------------------------------*\
+    Top Bar
+\*-------------------------------------------*/
+
+.top-bar {
+    display: flex;
+    flex: 0 1 auto;
+    width: auto;
+    background: #4C9CFF;
+    z-index: 10;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    border-radius: 8px 8px 0px 0px;
+    padding: 4px;
+}
+
+.top-bar:hover {
+    cursor: default;
+}
+
+.window-name {
+    color: black;
+    display: flex;
+    align-items: center;
+    padding: 0;
+    margin: 0 0 0 3px;
+}
+
+/*-------------------------------------------*\
+    CSS Normalisation 
+\*-------------------------------------------*/
+
+button {
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    outline: inherit;
+}
+
+p {
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
+}
