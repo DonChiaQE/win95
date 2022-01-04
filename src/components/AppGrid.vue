@@ -31,6 +31,10 @@
     font-size: 12px;
     font-weight: 300;
 }
+
+.icon:hover {
+    cursor: pointer;
+}
 </style>
 
 <script>

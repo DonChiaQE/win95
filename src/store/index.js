@@ -32,7 +32,7 @@ export default new Vuex.Store({
         }, // Window Content Padding 
         position: "absolute", // Window Position
         positionX: "5vw", // Window Position X (when first opened)
-        positionY: "10vh", // Window Position Y (when first opened)
+        positionY: "5%", // Window Position Y (when first opened)
         iconImage: "bio.png", // Window Icon Image
         altText: "Biography", // Window Icon Alt Text
         fullscreen: false // Window Fullscreen State [true, false]
@@ -95,6 +95,25 @@ export default new Vuex.Store({
           fullscreen: false
       },
       {
+        windowId: "OpenSourceWindow", 
+          windowState: "close",
+          displayName: "Open Source",
+          windowComponent: 'window',
+          windowContent: 'opensource',
+          windowContentPadding: {
+            top: null,
+            right: '15px',
+            bottom: null,
+            left: '15px'
+          },
+          position: "absolute",
+          positionX: "6vw",
+          positionY: "12vh",
+          iconImage: "opensource.png",
+          altText: "Open Source Projects",
+          fullscreen: false
+      },
+      {
         windowId: "MailWindow", 
           windowState: "close",
           displayName: "Mail",
@@ -110,10 +129,9 @@ export default new Vuex.Store({
           positionX: "6vw",
           positionY: "12vh",
           iconImage: "mail.png",
-          altText: "Placeholder Icon",
+          altText: "Mail",
           fullscreen: false
-      }
-      ,
+      },
       {
         windowId: "WebOSWindow", 
           windowState: "close",
@@ -130,7 +148,7 @@ export default new Vuex.Store({
           positionX: "6vw",
           positionY: "12vh",
           iconImage: "webos.png",
-          altText: "Placeholder Icon",
+          altText: "Web OS",
           fullscreen: true
       }
       // register your new windows here

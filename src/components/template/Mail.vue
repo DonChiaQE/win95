@@ -204,7 +204,7 @@ hr {
 
 .header {
     font-weight: 700;
-    font-size: 14px;
+    font-size: 24px;
     padding-top: 10px;
     margin-left:8px;
     text-overflow: ellipsis; 

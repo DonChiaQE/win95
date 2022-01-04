@@ -13,24 +13,15 @@
 }
 
 .window {
-    
+    min-height: 50vh;
+    min-width: 50vw;
+    max-width: 100vw !important;
+    max-height: 100vh !important;
 }
 
 /*-------------------------------------------*\
     Buttons 
 \*-------------------------------------------*/
-
-/* .close-button:after {
-    content: '×';
-}
-
-.minimize-button:after {
-    content: '-';
-}
-
-.expand-button:after {
-    content: '+';
-} */
 
 .expand-button, .minimize-button, .close-button {
     background: rgb(195, 195, 195);
@@ -47,10 +38,6 @@
     font-size: 20px;
     font-weight: bold;
     margin-left: 2px;
-}
-
-.minimize-button {
-    
 }
 
 .expand-button:active, .minimize-button:active, .close-button:active {
@@ -76,18 +63,6 @@ background: rgb(192, 192, 192);
 /*-------------------------------------------*\
     Top Bar
 \*-------------------------------------------*/
-
-.top-bar {
-    /* display: flex;
-    height: 25px;
-    width: auto;
-    background: rgb(0, 0, 124);
-    z-index: 10;
-    align-items: center;
-    justify-content: space-between;
-    flex-direction: row;
-     */
-}
 
 .top-bar:hover {
     cursor: default;

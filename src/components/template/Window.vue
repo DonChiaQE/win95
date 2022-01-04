@@ -41,7 +41,6 @@
     touch-action: none;
     flex-flow: column;
     display: flex;
-    max-width: 100vw !important;
 }
 
 .fullscreen {

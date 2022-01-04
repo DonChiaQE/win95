@@ -105,10 +105,6 @@
     color: gray;
 }
 
-.subtitle:first-child {
-    padding-bottom: 10px;
-}
-
 .heading {
     padding-bottom: 5px;
 }
