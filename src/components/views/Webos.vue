@@ -1,28 +1,25 @@
 <template>
-<div style="display: flex; height:100%; flex-direction: column;">
+<div class="flexbox-column">
     <nav class="download-bar">
-        <a href="/files/don_chia_resume.pdf" class="download" style="z-index: 10;" download target="_blank">
+        <a href="https://github.com/dhs17y2adonchia/vuejs-os-template" class="download" style="z-index: 10;" download target="_blank">
             <span style="display: flex;" class="border">
                 <img src="@/assets/download.png" class="icon-image" />
-                <p style="margin-top: 2px;">Download</p>
-            </span>
-        </a>
-
-        <a href="/files/don_chia_resume.pdf" class="download" style="z-index: 10;" target="_blank">
-            <span style="display: flex;" class="border">
-                <img src="@/assets/open.png" class="icon-image" />
-                <p style="margin-top: 2px;">Open In New Tab</p>
+                <p style="margin-top: 2px;">Build your own WebOS with my template!</p>
             </span>
         </a>
     </nav>
-    <div class="frame" @click.native="openWindow('ResumeWindow')" style="z-index: 99">
-        <iframe @click.native="openWindow('ResumeWindow')" class="frame" src="https://drive.google.com/file/d/1qsqh9YVvDUeywBdOt1QA7G1ZrE6pE9oG/preview"></iframe>
-        <span v-if="$store.getters.getActiveWindow!='ResumeWindow'" @click.native="openWindow('ResumeWindow')" style="bottom:0;left:0;width:100%;height:95%;position:absolute;" class="overlay"></span>
-    </div>
+    <iframe class="frame" id="website" src="https://main-preview-site.netlify.app/" />
 </div>
 </template>
 
 <style scoped>
+.flexbox-column {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+    overflow: hidden;
+}
+
 .download {
     vertical-align: middle;
     box-shadow: 1.5px 1.5px black;
@@ -79,8 +76,25 @@
     cursor: pointer;
 }
 
+iframe {
+    width: 100%;
+    margin: 0;
+    margin-bottom: -5px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
 .frame {
     width: 100%;
     height: 97.5%;
 }
 </style>
+
+<script>
+export default {
+    methods: {
+        
+    }
+}
+</script>

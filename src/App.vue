@@ -108,7 +108,6 @@ html {
 import Navbar from './components/windows/Navbar'
 // import TopNavbar from './components/macos/TopNavbar.vue'
 import Window from './components/template/Window'
-import EmailWindow from './components/template/EmailWindow'
 import AppGrid from './components/AppGrid'
 import Placeholder from './components/views/Placeholder'
 import Photos from './components/views/Photos'
@@ -117,6 +116,7 @@ import Resume from './components/views/Resume'
 import Nossaflex from './components/views/Nossaflex'
 import Mail from './components/template/Mail'
 import StartMenu from './components/StartMenu.vue'
+import Webos from './components/template/WebOS'
 export default {
     name: 'App',
     data: function () {
@@ -130,13 +130,13 @@ export default {
         Navbar,
         AppGrid,
         Placeholder,
-        EmailWindow,
         Photos,
         Bio,
         Resume,
         Nossaflex,
         Mail,
-        StartMenu
+        StartMenu,
+        Webos
         // TopNavbar,
     },
     computed: {
@@ -172,6 +172,7 @@ export default {
         }
         window.addEventListener("resize", resetHeight);
         this.$store.commit('setFullscreenWindowHeight', window.innerHeight - navbarHeight - topNavbarHeight + "px");
+        this.openWindow('BiographyWindow')
     },
     methods: {
         openWindow(windowId) {
@@ -194,9 +195,8 @@ export default {
             this.$store.commit('setActiveWindow', '')
             setTimeout(() => {  
                 this.$store.commit('zIndexIncrement', '')
-            }, 1);
+                }, 0);
             }
-            
         }
     },
 }

@@ -36,7 +36,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    min-height: 50vh;
+    min-height: 70vh;
     min-width: 350px;
     user-select: none;
     -ms-touch-action: none;
@@ -99,7 +99,7 @@
     color: white;
     display: flex;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     padding: 0;
     font-size: 16px;
     margin: 0 0 0 3px;
@@ -109,6 +109,8 @@
     width: 15px;
     height: 15px;
     margin-right: 5px;
+    margin-top: 0; 
+    margin-bottom: 0;
 }
 </style>
 

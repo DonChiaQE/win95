@@ -3,7 +3,7 @@
     <div alt="start" class="start-menu" v-on:click="$store.commit('setActiveWindow', 'Menu')" :class="$store.getters.getActiveWindow=='Menu' ? 'start-menu-depressed' : 'start-menu'">
         <div class="" :class="$store.getters.getActiveWindow=='Menu' ? 'border' : 'container-border'">
             <img class="start-icon" src="@/assets/win95.png"/>
-                <div style="padding-left: 3px; font-size: 0.9rem; font-weight: bold;">Start</div>
+                <button style="padding-left: 3px; font-size: 0.9rem; font-weight: bold;">Start</button>
                 </div>
         </div>
     <div 
@@ -14,14 +14,14 @@
             v-if="$store.getters.getActiveWindow!==window.windowId && (window.windowState=='open' || window.windowState=='minimize')" v-on:click="openWindow(window.windowId)" 
             class="navbar-item open"> 
                 <img class="icon-image" :src="require('@/assets/win95Icons/' + window.iconImage)" :alt="window.altText"/>
-                {{window.displayName}}
+                <p>{{window.displayName}}</p>
         </button>
         <button 
             v-if="$store.getters.getActiveWindow==window.windowId" 
             v-on:click="openWindow(window.windowId)" 
             class="navbar-item-depressed">
             <img class="icon-image" :src="require('@/assets/win95Icons/' + window.iconImage)" :alt="window.altText"/>
-                {{window.displayName}}
+                <p>{{window.displayName}}</p>
         </button>
     </div>
     <div class="spacer"></div>
@@ -74,7 +74,7 @@
     padding-right: 5px;
     font-weight: bold;
     font-size: 0.7rem;
-    padding-top: 4px;
+    padding-top: 2px;
 }
 
 .navbar-item:active {
@@ -111,7 +111,7 @@
     border-left: solid rgb(0, 0, 0) 1.5px;
     border-bottom: solid rgb(250, 250, 250) 1.5px;
     border-right: solid rgb(250, 250, 250) 1.5px;
-    padding-top: 4px;
+    padding-top: 2px;
 }
 
 .start-icon {
@@ -122,7 +122,7 @@
 .start-menu {
     width: 65px;
     margin: 5px;
-    height: 26px;
+    height: 25px;
     box-shadow: 1.5px 1.5px black;
     border-top: solid rgb(250, 250, 250) 1.5px;
     border-left: solid rgb(250, 250, 250) 1.5px;
@@ -180,6 +180,8 @@
     width: 15px;
     height: 15px;
     margin-right: 5px;
+    margin-top: 0; 
+    margin-bottom: 0;
 }
 
 .spacer {
@@ -234,6 +236,11 @@ button {
     border: none;
     font: inherit;
     outline: inherit;
+}
+
+p {
+    margin: 0;
+    padding: 0;
 }
 </style>
 

@@ -18,9 +18,9 @@
     </div>
     <div class="send-bar">
         <button type="submit" class="sent" style="z-index: 10;">
-            <span style="display: flex;" class="border">
+            <span class="border">
                 <img src="@/assets/send.png" class="icon-image" />
-                <div style="margin-top: 2px;">Send</div>
+                <p style="margin-top: 2px; color: black;">Send</p>
             </span>
         </button>
     </div>
@@ -105,6 +105,8 @@
     width: 15px;
     height: 15px;
     margin-right: 5px;
+    margin-top: 0; 
+    margin-bottom: 0;
 }
 
 .top-bar-window {
@@ -130,16 +132,10 @@
     color: white;
     display: flex;
     align-items: center;
-    font-weight: 700;
+    font-weight: 500;
     padding: 0;
     font-size: 16px;
     margin: 0 0 0 3px;
-}
-
-.icon-image {
-    width: 15px;
-    height: 15px;
-    margin-right: 5px;
 }
 
 .subject {
@@ -152,6 +148,8 @@ p {
     color: rgb(155, 155, 155);
     margin-right: 5px;
     font-size: 14px;
+    margin: 0 0 0 0;
+    padding: 0 0 0 0;
 }
 
 button {

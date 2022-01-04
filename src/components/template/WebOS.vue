@@ -1,21 +1,32 @@
 <template>
 <interact draggable :dragOption="dragOption" resizable :resizeOption="resizeOption" class="window window-style" :style="style" @dragmove="dragmove" @resizemove="resizemove" @click.native="setActiveWindow" :class="{ fullscreen: $store.getters.getWindowFullscreen(this.ComponentName), minimize: $store.getters.getWindowById(ComponentName).windowState=='minimize'}">
-    <div class="top-bar" id="top-bar" @dblclick="toggleWindowSize">
-        <h3 class="window-name">{{this.window.displayName}}</h3>
+    <div class="top-bar-window" :class="$store.getters.getActiveWindow==this.ComponentName ? 'top-bar' : 'top-bar-deactivated'" id="top-bar" @dblclick="toggleWindowSize">
+        <div class="window-name"><img class="icon-image" :src="require('@/assets/win95Icons/' + this.window.iconImage)" :alt="window.altText"/>{{this.window.displayName}}</div>
+        <!-- <div class="window-name">{{this.window.displayName}}</div> -->
         <div class="triple-button">
-            <button class="expand-button button" @click="toggleWindowSize"></button>
-            <button class="minimize-button button" @click="minimizeWindow"></button>
-            <button class="close-button button" @click="closeWindow"></button>
+            <button class="minimize-button button" @click="minimizeWindow">
+                <span style="height: 2px; width: 6px; background: black; margin-top: 8px; margin-right: 2px;">
+                </span>
+            </button>
+            <button class="expand-button button" @click="toggleWindowSize">
+                <span style="height: 8px; width: 9px; border-left: black 1px solid; border-right: black 1px solid; border-left: black 1px solid; border-bottom: black 1px solid; border-top: black 2px solid">
+                </span>
+            </button>
+            <button class="close-button button" style="margin-right: 3px; padding-left: 1px;" @click="closeWindow">×</button>
         </div>
     </div>
     <div class="content">
-        <h2>EMAIL</h2>
-        <form class="email-form">
-            <input class="email-input" type="text" placeholder="To:">
-            <input class="email-input" type="text" placeholder="From:">
-            <input class="email-input" type="text" placeholder="Subject:">
-            <textarea class="email-input" placeholder="Message"></textarea>
-        </form>
+        <div class="flexbox-column">
+            <nav class="download-bar">
+                <a href="https://github.com/dhs17y2adonchia/vuejs-os-template" class="download" style="z-index: 10;" download target="_blank">
+                    <span style="display: flex;" class="border">
+                        <img src="@/assets/download.png" class="icon-image" />
+                        <p style="margin-top: 2px;">Build your own WebOS with my template!</p>
+                    </span>
+                </a>
+            </nav>
+            <iframe class="frame" id="website" src="https://main-preview-site.netlify.app/" />
+        </div>
     </div>
 </interact>
 </template>
@@ -33,7 +44,7 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    min-height: 50vh;
+    min-height: 70vh;
     min-width: 350px;
     user-select: none;
     -ms-touch-action: none;
@@ -59,14 +70,132 @@
     padding-bottom: var(--content-padding-bottom);
 }
 
-h2 {
-    margin: 0;
-    padding: 0;
+/*-------------------------------------------*\
+    Top Bar
+\*-------------------------------------------*/
+
+.top-bar {
+    background: rgb(0, 0, 124);
 }
 
-.email-input {
+.icon-image {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+}
+
+.top-bar-window {
+    display: flex;
+    width: auto;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: row;
+    z-index: 10;
+    margin: 2px;
+    padding: 2px 2px 2px 2px;
+}
+
+.top-bar-deactivated {
+    background: rgb(123, 125, 123);
+}
+
+.top-bar:hover {
+    cursor: default;
+}
+
+.window-name {
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 500;
+    padding: 0;
+    font-size: 16px;
+    margin: 0 0 0 3px;
+}
+
+.icon-image {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+.flexbox-column {
+    display: flex; 
+    flex-direction: column; 
+    height: 100%;
+    overflow: hidden;
+}
+
+.download {
+    vertical-align: middle;
+    box-shadow: 1.5px 1.5px black;
+    border-top: solid rgb(250, 250, 250) 1.5px;
+    border-left: solid rgb(250, 250, 250) 1.5px;
+    border-bottom: solid rgb(90, 90, 90) 1.5px;
+    border-right: solid rgb(90, 90, 90) 1.5px;
+    background: rgb(192, 192, 192);
+    padding: 2px;
+    margin-right: 5px;
+}
+
+.download:active {
+    box-shadow: none;
+    background: repeating-conic-gradient(rgb(189, 190, 189) 0% 25%, rgb(255, 255, 255) 0% 50%) 
+              50% / 2px 2px;
+    border-top: solid rgb(0, 0, 0) 1.5px;
+    border-left: solid rgb(0, 0, 0) 1.5px;
+    border-bottom: solid rgb(250, 250, 250) 1.5px;
+    border-right: solid rgb(250, 250, 250) 1.5px;
+}
+
+.download-bar {
+    border: 1px white solid;
+    outline: 1px rgb(123, 125, 123) solid;
+    font-size: 12px;
+    padding: 4px 4px 4px 4px;
     width: 100%;
-    margin: 5px 0px 5px 0px;
+    display: flex;
+    flex-direction: row;
+}
+
+.icon-image {
+    width: 15px;
+    height: 15px;
+    margin-right: 5px;
+    margin-top: 0; 
+    margin-bottom: 0;
+}
+
+.border {
+    justify-content: center;
+    align-items: center;
+    border: 1px solid transparent;
+    font-family: "MS Sans Serif";
+    src: url('~@/assets/fonts/MS-Sans-Serif.ttf');
+}
+
+.border:active {
+    border: black dotted 1px;
+}
+
+.download:hover {
+    cursor: pointer;
+}
+
+iframe {
+    width: 100%;
+    margin: 0;
+    margin-bottom: -5px;
+    border: 0;
+    font-size: 100%;
+    font: inherit;
+    vertical-align: baseline;
+}
+.frame {
+    width: 100%;
+    height: 97.5%;
 }
 </style>
 
@@ -74,6 +203,7 @@ h2 {
 import interact from "interactjs";
 export default {
     props: {
+        'windowId': String,
         'nameOfWindow': String,
         content_padding_left: {
             required: false,
@@ -126,7 +256,7 @@ export default {
                         endOnly: true
                     })
                 ],
-                allowFrom: '.top-bar',
+                allowFrom: '#top-bar',
             },
             // values for interact.js transformation
             x: 0,
@@ -205,6 +335,9 @@ export default {
                 this.x = 0
                 this.y = 0
             }
+            setTimeout(() => {  
+                document.getElementById('website').src = document.getElementById('website').src
+            }, 400);
         },
 
         setActiveWindow() {

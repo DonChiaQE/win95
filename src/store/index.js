@@ -23,7 +23,7 @@ export default new Vuex.Store({
         windowState: "close", // Window State [open, close, minimize]
         displayName: "Biography", // Display Name (title under icon)
         windowComponent: 'window', // Window Component (can be changed to use modified windows)
-        windowContent: 'Bio', // Window Content (used under slots)
+        windowContent: 'bio', // Window Content (used under slots)
         windowContentPadding: {
           top: null,
           right: null,
@@ -32,7 +32,7 @@ export default new Vuex.Store({
         }, // Window Content Padding 
         position: "absolute", // Window Position
         positionX: "10vw", // Window Position X (when first opened)
-        positionY: "15vh", // Window Position Y (when first opened)
+        positionY: "10vh", // Window Position Y (when first opened)
         iconImage: "bio.png", // Window Icon Image
         altText: "Biography", // Window Icon Alt Text
         fullscreen: false // Window Fullscreen State [true, false]
@@ -42,7 +42,7 @@ export default new Vuex.Store({
         windowState: "close", // Window State [open, close, minimize]
         displayName: "Résumé", // Display Name (title under icon)
         windowComponent: 'window', // Window Component (can be changed to use modified windows)
-        windowContent: 'Resume', // Window Content (used under slots)
+        windowContent: 'resume', // Window Content (used under slots)
         windowContentPadding: {
           top: '0',
           right: '0',
@@ -80,7 +80,7 @@ export default new Vuex.Store({
           windowState: "close",
           displayName: "NOSSAFLEX",
           windowComponent: 'window',
-          windowContent: 'Nossaflex',
+          windowContent: 'nossaflex',
           windowContentPadding: {
             top: null,
             right: null,
@@ -112,6 +112,26 @@ export default new Vuex.Store({
           iconImage: "mail.png",
           altText: "Placeholder Icon",
           fullscreen: false
+      }
+      ,
+      {
+        windowId: "WebOSWindow", 
+          windowState: "close",
+          displayName: "Web OS",
+          windowComponent: 'webos',
+          windowContent: '',
+          windowContentPadding: {
+            top: '0',
+            right: '0',
+            bottom: '0',
+            left: '0'
+          },
+          position: "absolute",
+          positionX: "6vw",
+          positionY: "12vh",
+          iconImage: "webos.png",
+          altText: "Placeholder Icon",
+          fullscreen: true
       }
       // register your new windows here
     ],

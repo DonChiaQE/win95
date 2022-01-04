@@ -2,7 +2,7 @@
 <div>
     <img class="self" src="@/assets/Biography/self.webp" />
     <h2 class="header">Don Chia (谢祺恩)</h2>
-    <h4 class="subtitle">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021</h4>
+    <h4 class="subtitle" style="padding-bottom: 10px;">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021</h4>
     <h4 class="subtitle">Singapore 📍</h4>
     <div class="badge-grid">
         <img class="badge" alt="Swift" src="https://img.shields.io/badge/-Swift-orange" />
@@ -105,11 +105,25 @@
     color: gray;
 }
 
+.subtitle:first-child {
+    padding-bottom: 10px;
+}
+
 .heading {
     padding-bottom: 5px;
 }
 
+.header {
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .inner-content {
     padding-top: 30px;
+}
+
+h2, h4, h3 {
+    padding: 0;
+    margin: 0;
 }
 </style>
