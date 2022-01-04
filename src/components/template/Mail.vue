@@ -63,13 +63,12 @@
     box-sizing: border-box;
     padding: 0px;
     margin: 0px;
-    min-height: 50vh;
-    min-width: 350px;
     user-select: none;
     -ms-touch-action: none;
     touch-action: none;
     flex-flow: column;
     display: flex;
+    max-width: 100vw !important;
 }
 
 .fullscreen {
@@ -311,9 +310,9 @@ export default {
                 },
                 margin: 8,
                 modifiers: [
-                    // interact.modifiers.restrictRect({
-                    //     restriction: '#screen'
-                    // })
+                    interact.modifiers.restrictRect({
+                        restriction: '#screen'
+                    })
                 ],
             },
             dragOption: {

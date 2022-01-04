@@ -14,7 +14,7 @@
         </button>
     </li>
     <li>
-        <button class="icon" @touchstart="openGithub()" @dblclick="openGithub()">
+        <button class="icon" @touchstart="openGithub()" @click="openGithub()">
             <img class="icon-image" :src="require('../assets/win95Icons/' + 'Github.webp')" alt="GitHub" />
             <div class="border">
             <p class="icon-text">
