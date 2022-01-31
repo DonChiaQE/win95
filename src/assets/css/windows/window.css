@@ -13,10 +13,16 @@
 }
 
 .window {
-    min-height: 50vh;
+    min-height: 80vh;
     min-width: 50vw;
     max-width: 100vw !important;
     max-height: 100vh !important;
+}
+
+@media only screen and (max-width: 600px) {
+    .window {
+        min-height: 70vh;
+    }
 }
 
 /*-------------------------------------------*\

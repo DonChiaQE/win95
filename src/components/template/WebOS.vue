@@ -234,20 +234,20 @@ export default {
             Window: {},
 
             // InteractJS states and modifiers
-            resizeOption: {
-                edges: {
-                    top: true,
-                    left: true,
-                    bottom: true,
-                    right: true
-                },
-                margin: 8,
-                modifiers: [
-                    interact.modifiers.restrictRect({
-                        restriction: '#screen'
-                    })
-                ],
-            },
+            // resizeOption: {
+            //     edges: {
+            //         top: true,
+            //         left: true,
+            //         bottom: true,
+            //         right: true
+            //     },
+            //     margin: 8,
+            //     modifiers: [
+            //         interact.modifiers.restrictRect({
+            //             restriction: '#screen'
+            //         })
+            //     ],
+            // },
             dragOption: {
                 modifiers: [
                     interact.modifiers.restrictRect({
