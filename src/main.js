@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import App from './App.vue'
-import { store } from './store/store'
+import store from './store'
 import moment from 'moment'
 import VueInteractJs from "vue-interactjs";
 import Vue2TouchEvents from 'vue2-touch-events'
