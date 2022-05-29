@@ -86,7 +86,7 @@
 
                         <div class="inner-content">
                             <div class="heading"><b>Résumé</b></div>
-                            <a style="color: #FF5733;" href="/files/resume.pdf" class="paragraph">Check out my résumé here.</a>
+                            <a style="color: #FF5733;" href="/files/don_chia_resume.pdf" class="paragraph">Check out my résumé here.</a>
                         </div>                
                 </div>
             </div>
