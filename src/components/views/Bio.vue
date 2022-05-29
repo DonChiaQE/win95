@@ -2,7 +2,7 @@
 <div>
     <img class="self" src="@/assets/Biography/self.webp" />
     <h2 class="header">Don Chia (谢祺恩)</h2>
-    <h4 class="subtitle" style="padding-bottom: 10px;">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021</h4>
+    <h4 class="subtitle" style="padding-bottom: 10px;">Web Developer | iOS Developer | UI/UX Designer | Apple WWDC Scholar 2021 & 2022</h4>
     <h4 class="subtitle">Singapore 📍</h4>
     <div class="badge-grid">
         <img class="badge" alt="Swift" src="https://img.shields.io/badge/-Swift-orange" />
@@ -39,8 +39,15 @@
         <h3 class="heading"><b>Apple WWDC Scholar 2021</b></h3>
         <p class="paragraph">My second try at Apple's international coding competition was finally a successful one. Making use of my prowess with web development, I decided to create a Swift Playground project that taught users how to make use of HTML and CSS to create a simple website.</p>
         <p class="paragraph">Making use of Apple's SwiftUI framework as well as the nifty WKWebView API, I managed to create a working editor that would allow users to meddle with HTML and CSS. I proceeded to create a playground book project around that idea and came up with a tutorial sequence for the user to follow.</p>
-        <p class="paragraph">Check out my submission <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/WWDC2021">here</a>!</p>
+        <p class="paragraph">Check out my submission <a style="color: #FF5733;" href="https://github.com/DonChiaQE/WWDC2021">here</a>!</p>
         <p class="paragraph">And check out my interview with the local news outlet regarding NOSSAFLEX and my WWDC experience <a style="color: #FF5733;" href="https://www.youtube.com/watch?v=RwtzXxSSJAc">right here</a>!</p>
+    </div>
+
+    <div class="inner-content">
+        <h3 class="heading"><b>Apple WWDC Scholar 2022</b></h3>
+        <p class="paragraph">Yet another successful attempt at Apple's international coding competition. By making use of SwiftUI once more, I created a short app experience that explores recursive art patterns and abstract art. With the help of generative art, I was able to create a unique experience that most people would have rarely come across.</p>
+        <p class="paragraph">Check out my submission <a style="color: #FF5733;" href="https://github.com/DonChiaQE/ReGen">here</a>!</p>
+        <p class="paragraph">As this news has only just recently reached me, I will be updating this section once more when I have receive more news from Apple HQ.</p>
     </div>
 
     <div class="inner-content">
@@ -52,13 +59,13 @@
     <div class="inner-content">
         <h3 class="heading"><b>iOS Developer</b></h3>
         <p class="paragraph">As listed above, I have over a year of experience with SwiftUI and have had plenty of projects that features the use of SwiftUI. SwiftUI was used in most of the components building NOSSAFLEX and the components featured required custom styling to fit our themeing. I have also had the chance to participate in two WWDC Student Challenges in 2020 as well as 2021, both projects featured SwiftUI and a variety of other Swift technologies.</p>
-        <p class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/WWDC2021">[Submission for WWDC 2021]</a> <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/push-pop-push-views-swiftui-example">[Push and Popping Solution for SwiftUI]</a></p>
+        <p class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/DonChiaQE/WWDC2021">[Submission for WWDC 2021]</a> <a style="color: #FF5733;" href="https://github.com/DonChiaQE/push-pop-push-views-swiftui-example">[Push and Popping Solution for SwiftUI]</a></p>
     </div>
 
     <div class="inner-content">
         <h3 class="heading"><b>Web Developer</b></h3>
         <p class="paragraph">As a web developer, I have also had a lot of chances to practice and participate in projects to further hone my skills. I have plenty of experience with backend Python as well as databases using SQL or NoSQL solutions. But most of my time is dedicated to frontend development using Vuejs and elaborate styling of websites (such as this one 😁).</p>
-        <p class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/dunmanhigh-isac/dhap-2021">[MUN Website for School]</a> <a style="color: #FF5733;" href="https://github.com/dhs17y2adonchia/marketplace">[CMS Marketplace]</a> <a style="color: #FF5733;" href="https://github.com/zaydek/duomo">[SCSS Library]</a></p>
+        <p class="paragraph">Here are some of the projects I have contributed towards. <a style="color: #FF5733;" href="https://github.com/dunmanhigh-isac/dhap-2021">[MUN Website for School]</a> <a style="color: #FF5733;" href="https://github.com/DonChiaQE/marketplace">[CMS Marketplace]</a> <a style="color: #FF5733;" href="https://github.com/zaydek/duomo">[SCSS Library]</a></p>
     </div>
 
     <div class="inner-content">

@@ -118,6 +118,8 @@ import Mail from './components/template/Mail'
 import StartMenu from './components/StartMenu.vue'
 import Webos from './components/template/WebOS'
 import Opensource from './components/views/Opensource'
+import Wwdc2021 from './components/views/Wwdc2021'
+import Wwdc2022 from './components/views/Wwdc2022'
 export default {
     name: 'App',
     data: function () {
@@ -138,7 +140,9 @@ export default {
         Mail,
         StartMenu,
         Webos,
-        Opensource
+        Opensource,
+        Wwdc2021,
+        Wwdc2022
         // TopNavbar,
     },
     computed: {
