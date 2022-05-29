@@ -55,7 +55,7 @@ export default {
             this.$store.commit('setWindowState', payload)
         },
         openGithub() {
-            window.open("https://github.com/dhs17y2adonchia"); 
+            window.open("https://github.com/DonChiaQE"); 
         }
     },
     mounted() {

@@ -73,7 +73,7 @@
 
     <div class="inner-content">
         <h3 class="heading"><b>Résumé</b></h3>
-        <a style="color: #FF5733;" href="/files/resume.pdf" class="paragraph">Check out my résumé here.</a>
+        <a style="color: #FF5733;" href="/files/don_chia_resume.pdf" class="paragraph">Check out my résumé here.</a>
     </div>
 </div>
 </template>
