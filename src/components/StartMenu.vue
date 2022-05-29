@@ -28,7 +28,7 @@
                 <u>T</u>witter
             </div>
             </a>
-            <a href="https://github.com/dhs17y2adonchia" target="_blank">
+            <a href="https://github.com/DonChiaQE" target="_blank">
             <div class="bar">
                 <img class="social-image" src="@/assets/iPhone-Icons/Github.webp"/>
                 <u>G</u>itHub
