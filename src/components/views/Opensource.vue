@@ -3,7 +3,7 @@
     <h2>Open Source Projects</h2>
 
     <div class="inner-content">
-        <h3 class="heading"><a href="https://github.com/dhs17y2adonchia/vuejs-os-template">OS Template for Vue.JS</a></h3>
+        <h3 class="heading"><a href="https://github.com/DonChiaQE/vuejs-os-template">OS Template for Vue.JS</a></h3>
         <p class="paragraph">An open source WIP template made and designed for Vue 2.</p>
         <p class="paragraph">Technologies used:</p>
         <ul>

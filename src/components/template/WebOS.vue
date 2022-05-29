@@ -18,7 +18,7 @@
     <div class="content">
         <div class="flexbox-column">
             <nav class="download-bar">
-                <a href="https://github.com/dhs17y2adonchia/vuejs-os-template" class="download" style="z-index: 10;" download target="_blank">
+                <a href="https://github.com/DonChiaQE/vuejs-os-template" class="download" style="z-index: 10;" download target="_blank">
                     <span style="display: flex;" class="border">
                         <img src="@/assets/download.png" class="icon-image" />
                         <p style="margin-top: 2px;">Build your own WebOS with my template!</p>

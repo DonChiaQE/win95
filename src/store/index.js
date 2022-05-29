@@ -95,6 +95,44 @@ export default new Vuex.Store({
           fullscreen: false
       },
       {
+        windowId: "AppleWWDC2021", 
+          windowState: "close",
+          displayName: "WWDC 2021",
+          windowComponent: 'window',
+          windowContent: 'wwdc2021',
+          windowContentPadding: {
+            top: null,
+            right: null,
+            bottom: null,
+            left: null
+          },
+          position: "absolute",
+          positionX: "4vw",
+          positionY: "12vh",
+          iconImage: "apple.png",
+          altText: "Apple WWDC 2021",
+          fullscreen: false
+      },
+      {
+        windowId: "AppleWWDC2022", 
+          windowState: "close",
+          displayName: "WWDC 2022",
+          windowComponent: 'window',
+          windowContent: 'wwdc2022',
+          windowContentPadding: {
+            top: null,
+            right: null,
+            bottom: null,
+            left: null
+          },
+          position: "absolute",
+          positionX: "4vw",
+          positionY: "12vh",
+          iconImage: "apple2.png",
+          altText: "Apple WWDC 2022",
+          fullscreen: false
+      },
+      {
         windowId: "OpenSourceWindow", 
           windowState: "close",
           displayName: "Open Source",
