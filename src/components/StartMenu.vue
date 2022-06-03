@@ -4,7 +4,7 @@
             <img class="sidebar-image" src="@/assets/sidebar-image.png"/>
         </div>
         <div class="socials">
-            <a href="https://www.instagram.com/__dontax__/" target="_blank">
+            <a href="https://www.instagram.com/_dontax_/" target="_blank">
             <div class="bar">
                 <img class="social-image" src="@/assets/iPhone-Icons/Instagram.webp"/>
                 <div class="social-text"><u>I</u>nstagram</div>
@@ -16,7 +16,7 @@
                 <u>R</u>eddit
             </div>
             </a>
-            <a href="https://www.linkedin.com/in/don-chia-0b518b160/" target="_blank">
+            <a href="https://www.linkedin.com/in/don-chia-谢祺恩）-0b518b160" target="_blank">
             <div class="bar">
                 <img class="social-image" src="@/assets/iPhone-Icons/Linkedin.webp"/>
                 <u>L</u>inkedIn
