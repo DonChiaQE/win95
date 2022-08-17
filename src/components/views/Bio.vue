@@ -20,7 +20,7 @@
     </div>
     <div class="inner-content">
         <h3 class="heading"><b>About Me</b></h3>
-        <p class="paragraph">Hello there! I am Don from Singapore and I am an 18 year old student who's extremely passionate in both programming and design for both the web and iOS platform. I am currently still a student in high school but let not my age
+        <p class="paragraph">Hello there! I am Don from Singapore and I am an 19 year old student who's extremely passionate in both programming and design for both the web and iOS platform. I am currently still a student in high school but let not my age
             be the key defining factor as I often aim to punch above my weight.</p>
         <p class="paragraph">I have worked with a mixture of design and frontend/backend technologies, be it for Web Development or iOS Development.</p>
     </div>
