@@ -16,7 +16,7 @@
         </a>
     </nav>
     <div class="frame" @click.native="openWindow('ResumeWindow')" style="z-index: 99">
-        <iframe @click.native="openWindow('ResumeWindow')" class="frame" src="https://drive.google.com/file/d/1qsqh9YVvDUeywBdOt1QA7G1ZrE6pE9oG/preview"></iframe>
+        <iframe @click.native="openWindow('ResumeWindow')" class="frame" src="https://drive.google.com/file/d/1JbqfFRdU42pfgmA8ItUWwHJA3W-EbiW6/preview"></iframe>
         <span v-if="$store.getters.getActiveWindow!='ResumeWindow'" @click.native="openWindow('ResumeWindow')" style="bottom:0;left:0;width:100%;height:95%;position:absolute;" class="overlay"></span>
     </div>
 </div>
