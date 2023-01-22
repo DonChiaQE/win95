@@ -35,7 +35,7 @@
                     <!-- <object data="/files/don_chia_resume.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf">
                         <embed src="/files/don_chia_resume.pdf#toolbar=0&navpanes=0&scrollbar=0" type="application/pdf" />
                     </object> -->
-                    <iframe @click.native="focusResume" class="frame" src="https://drive.google.com/file/d/1qsqh9YVvDUeywBdOt1QA7G1ZrE6pE9oG/preview"></iframe>
+                    <iframe @click.native="focusResume" class="frame" src="https://drive.google.com/file/d/1JbqfFRdU42pfgmA8ItUWwHJA3W-EbiW6/preview"></iframe>
                     <div v-if="$store.getters.activeWindow!='Resume'" @click.native="focusResume" style="bottom:0;left:0;width:100%;height:95%;position:absolute;" class="overlay"></div>
                 </div>
             </div>
