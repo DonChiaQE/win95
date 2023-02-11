@@ -1,9 +1,10 @@
 <template>
-<div class="grid">
+<!-- <div class="grid">
     <div class="square" v-for="i in 43" v-bind:key="i">
         <img data-fancybox="gallery" :src="require(`@/assets/PhotosWebp/image-${i}.webp`)" :href="require(`@/assets/PhotosWebpExpanded/image-${i}.webp`)" />
     </div>
-</div>
+</div> -->
+<iframe src="https://www.instagram.com/_dontax_/embed" width="100%" height="99%"/>
 </template>
 
 <style scoped>
