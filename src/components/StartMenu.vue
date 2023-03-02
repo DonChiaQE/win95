@@ -16,7 +16,7 @@
                 <u>R</u>eddit
             </div>
             </a>
-            <a href="https://www.linkedin.com/in/don-chia-谢祺恩）-0b518b160" target="_blank">
+            <a href="https://www.linkedin.com/in/don-chia-%E8%B0%A2%E7%A5%BA%E6%81%A9-0b518b160" target="_blank">
             <div class="bar">
                 <img class="social-image" src="@/assets/iPhone-Icons/Linkedin.webp"/>
                 <u>L</u>inkedIn
