@@ -24,11 +24,12 @@
                 >
                 </component>
             </component>
-            <StartMenu v-if="$store.getters.getActiveWindow=='Menu'" style="position: absolute; z-index: 9999; bottom: 0; left: 0;"></StartMenu>
+            
         </div>
         <app-grid></app-grid>
     </div>
-    <navbar id="navbar" />
+    <StartMenu v-if="$store.getters.getActiveWindow=='Menu'" style="position: absolute; z-index: 9999; left: 0; bottom: 39px;"></StartMenu>
+    <navbar style="position: absolute; bottom: 0; z-index: 9999;" id="navbar" />
 </div>
 </template>
 
