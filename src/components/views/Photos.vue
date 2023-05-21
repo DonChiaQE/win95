@@ -1,30 +1,34 @@
 <template>
-<!-- <div class="grid">
+  <!-- <div class="grid">
     <div class="square" v-for="i in 43" v-bind:key="i">
         <img data-fancybox="gallery" :src="require(`@/assets/PhotosWebp/image-${i}.webp`)" :href="require(`@/assets/PhotosWebpExpanded/image-${i}.webp`)" />
     </div>
 </div> -->
-<iframe src="https://www.instagram.com/_dontax_/embed" width="100%" height="99%"/>
+  <iframe
+    src="https://www.instagram.com/_dontax_/embed"
+    width="100%"
+    height="99%"
+  />
 </template>
 
 <style scoped>
 .grid {
-    column-count: 2;
-    column-gap: 0.5em;
-    margin-top: auto;
-    margin-bottom: auto;
-    padding: 20px;
+  column-count: 2;
+  column-gap: 0.5em;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 20px;
 }
 
 img {
-    background-color: #eee;
-    display: inline-block;
-    margin: 0 0 0.5em;
-    width: 100%;
+  background-color: #eee;
+  display: inline-block;
+  margin: 0 0 0.5em;
+  width: 100%;
 }
 
 img:hover {
-    cursor: pointer;
-    box-shadow: black 0 0 3px;
+  cursor: pointer;
+  box-shadow: black 0 0 3px;
 }
 </style>
