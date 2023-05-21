@@ -20,6 +20,8 @@
             left: window.positionX,
             top: window.positionY,
           }"
+          :folderContent="window.folderContent"
+          :folderSize="window.folderSize"
           v-if="windowCheck(window.windowId)"
         >
           <component :is="window.windowContent" slot="content"> </component>
@@ -115,6 +117,8 @@ import Navbar from "./components/windows/Navbar";
 // import TopNavbar from './components/macos/TopNavbar.vue'
 import Window from "./components/template/Window";
 import AppGrid from "./components/AppGrid";
+import FilesWindow from "./components/template/FilesWindow.vue";
+import ImagePreviewWindow from "./components/template/ImagePreviewWindow.vue";
 import Placeholder from "./components/views/Placeholder";
 import Photos from "./components/views/Photos";
 import Bio from "./components/views/Bio";
@@ -139,6 +143,8 @@ export default {
     Navbar,
     AppGrid,
     Placeholder,
+    FilesWindow,
+    ImagePreviewWindow,
     Photos,
     Bio,
     Resume,
@@ -188,6 +194,33 @@ export default {
       "setFullscreenWindowHeight",
       window.innerHeight - navbarHeight - topNavbarHeight + "px"
     );
+
+    const newPhotoWindowPayload = {
+      windowId: "PhotosWindow",
+      windowState: "close",
+      displayName: "Photos",
+      windowComponent: "FilesWindow",
+      windowContent: "",
+      windowContentPadding: {
+        top: "0px",
+        right: "0px",
+        bottom: "0px",
+        left: "0px",
+      },
+      position: "absolute",
+      positionX: "6vw",
+      positionY: "12vh",
+      iconImage: "photos.png",
+      altText: "Photos",
+      fullscreen: false,
+      showInAppGrid: true,
+      showInNavbar: true,
+      // imagePreview: '',
+      folderContent: this.$store.getters.getPhotoFiles,
+      folderSize: 239217323,
+    };
+    this.$store.commit("pushNewWindow", newPhotoWindowPayload);
+
     this.openWindow("BiographyWindow");
   },
   methods: {

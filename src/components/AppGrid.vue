@@ -3,6 +3,7 @@
     <li v-for="window in windows" :key="window.key">
       <button
         class="icon"
+        v-if="window.showInAppGrid != false"
         @touchstart="openWindow(window.windowId)"
         @dblclick="openWindow(window.windowId)"
       >
@@ -17,16 +18,6 @@
           </p>
         </div>
       </button>
-    </li>
-    <li>
-      <!-- <button class="icon" @touchstart="openGithub()" @click="openGithub()">
-            <img class="icon-image" :src="require('../assets/win95Icons/' + 'Github.webp')" alt="GitHub" />
-            <div class="border">
-            <p class="icon-text">
-                GitHub
-            </p>
-            </div>
-        </button> -->
     </li>
   </nav>
 </template>
