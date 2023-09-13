@@ -125,7 +125,7 @@
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                href="https://www.linkedin.com/in/don-chia-0b518b160/"
+                href="www.linkedin.com/in/don-chia"
                 class="iphone-icon linkedin-icon"
               ></a>
               <a
