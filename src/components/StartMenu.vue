@@ -20,7 +20,7 @@
         </div>
       </a>
       <a
-        href="www.linkedin.com/in/don-chia"
+        href="https://www.linkedin.com/in/don-chia"
         target="_blank"
       >
         <div class="bar">
