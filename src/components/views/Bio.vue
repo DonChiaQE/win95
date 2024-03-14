@@ -27,12 +27,12 @@
         <p class="paragraph">
             Hello there! I am Don from Singapore and I am an 21 year old
             Software Engineer who's extremely passionate in both programming and design
-            for both the web and iOS platform. I am currently working as a software engineer at MINDEF Singapore,
-            working on exciting projects with React Native and Vue3.
+            for both the web and iOS platform. I am currently working as a software engineer 
+            at Ministry of Defence Singapore, working on exciting projects with React Native and Vue3.
         </p>
         <p class="paragraph">
             I have worked with a mixture of design and frontend/backend
-            technologies, be it for Web Development or iOS Development.
+            technologies, be it for Web Development, iOS Development and Cross-Platform Solutions.
         </p>
     </div>
     <div class="inner-content">
@@ -60,6 +60,19 @@
             app within the first weeks of the launch, not too shabby considering how
             niche our target group is.
         </p>
+    </div>
+
+    <div class="inner-content">
+      <h3 class="heading"><b>MINDEF Sigs CADO Team</b></h3>
+      <p class="paragraph">
+        My role at MINDEF Signals CADO Team is to design, develop and maintain 
+        SAF's OMNIA application. The application is a React Native mobile application
+        that aims to provide an app that targets troopers deployed for local and overseas
+        combat exercise. The app has integrated tracking functionality for troop movements,
+        open reporting channels and Cat One lightning alert updates in the field. An admin 
+        portal is also available for commanders to manage their vehicles, track their troop movements
+        and send out alerts to their troops.
+      </p>
     </div>
 
     <div class="inner-content">
