@@ -124,6 +124,11 @@
             />
             <img
               class="badge"
+              alt="React Native"
+              src="https://img.shields.io/badge/-React Native-blue"
+            />
+            <img
+              class="badge"
               alt="Vue"
               src="https://img.shields.io/badge/-VueJS-61b083"
             />
@@ -151,11 +156,10 @@
           <div class="inner-content">
             <div class="heading"><b>About Me</b></div>
             <div class="paragraph">
-              Hello there! I am Don from Singapore and I am an 18 year old
-              student who's extremely passionate in both programming and design
-              for both the web and iOS platform. I am currently still a student
-              in high school but let not my age be the key defining factor as I
-              often aim to punch above my weight.
+              Hello there! I am Don from Singapore and I am an 21 year old
+              Software Engineer who's extremely passionate in both programming and design
+              for both the web and iOS platform. I am currently working as a software engineer at MINDEF Singapore, 
+              working on exciting project with React Native and Vue3. 
             </div>
             <div class="paragraph">
               I have worked with a mixture of design and frontend/backend
