@@ -25,7 +25,7 @@
     <div class="inner-content">
         <h3 class="heading"><b>About Me</b></h3>
         <p class="paragraph">
-            Hello there! I am Don from Singapore and I am an 21 year old
+            Hello there! I am Don from Singapore and I am an {{new Date ().getFullYear () - 2003}} year old
             Software Engineer who's extremely passionate in both programming and design
             for both the web and iOS platform. I am currently working as a software engineer 
             at Ministry of Defence Singapore, working on exciting projects with React Native and Vue3.
