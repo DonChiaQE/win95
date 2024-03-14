@@ -159,7 +159,7 @@
               Hello there! I am Don from Singapore and I am an 21 year old
               Software Engineer who's extremely passionate in both programming and design
               for both the web and iOS platform. I am currently working as a software engineer at MINDEF Singapore, 
-              working on exciting project with React Native and Vue3. 
+              working on exciting projects with React Native and Vue3. 
             </div>
             <div class="paragraph">
               I have worked with a mixture of design and frontend/backend
