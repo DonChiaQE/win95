@@ -3,11 +3,10 @@
 <img width="1440" alt="Screenshot 2021-12-14 at 2 26 33 PM" src="https://user-images.githubusercontent.com/24926784/145944730-48de7cfc-d585-41a9-8f90-f5d08570a03e.png">
 
 # Frameworks and Libraries used
-- Vue.js 2
-- Vuex
-- Moment.js
-- Interact.js
-- Vue2 Touch Events
+- Vue 3
+- Nuxt 3
+- Pinia
+- Tailwind CSS
 
 # FAQ
 ### Is this open source?
