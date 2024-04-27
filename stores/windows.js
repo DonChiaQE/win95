@@ -71,7 +71,7 @@ export const useWindowsStore = defineStore("windows", {
         position: "absolute",
         positionX: "6vw",
         positionY: "12vh",
-        iconImage: "image.png",
+        iconImage: "file.png",
         altText: "Photos",
         fullscreen: false,
         showInAppGrid: false,

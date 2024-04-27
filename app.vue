@@ -10,7 +10,6 @@ import Nossaflex from './views/Nossaflex.vue'
 import Wwdc2021 from './views/Wwdc2021.vue'
 import Wwdc2022 from './views/Wwdc2022.vue'
 import Wwdc2023 from './views/Wwdc2023.vue'
-import TestBlog from './views/TestBlog.vue'
 import ImagePreviewWindow from './templates/ImagePreviewWindow.vue'
 import StartMenu from './templates/StartMenu.vue'
 import {
@@ -30,7 +29,6 @@ const slotViews = [
   { name: 'bio', comp: Bio },
   { name: 'resume', comp: Resume },
   { name: 'nossaflex', comp: Nossaflex },
-  { name: 'testblog', comp: TestBlog },
   { name: 'wwdc2021', comp: Wwdc2021 },
   { name: 'wwdc2022', comp: Wwdc2022 },
   { name: 'wwdc2023', comp: Wwdc2023 }
