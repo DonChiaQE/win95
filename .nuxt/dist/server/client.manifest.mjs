@@ -1,0 +1,1 @@
+export { default } from "file:///Users/donchia/Developer/win95/node_modules/@nuxt/vite-builder/dist/runtime/client.manifest.mjs"
