@@ -53,7 +53,7 @@
 
 .images {
     width: 100%;
-    height: 350px;
+    height: auto;
     /* object-fit: cover; */
 }
 

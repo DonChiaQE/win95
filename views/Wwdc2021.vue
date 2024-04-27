@@ -48,7 +48,7 @@
       </div>
       <img src="@/assets/Wwdc/swag2021.jpg" class="images-full" />
       <h6 class="subtitle" style="padding-bottom: 30px">WWDC Swag!</h6>
-      <div class="images">
+      <div class="video">
         <embed
           src="https://www.youtube.com/embed/qGlhv0LeLVE?autohide=1&autoplay=0"
           wmode="transparent"
@@ -74,7 +74,7 @@
   
   .images {
     width: 100%;
-    height: 350px;
+    height: auto;
     /* object-fit: cover; */
   }
   
@@ -82,6 +82,11 @@
     width: 100%;
     height: auto;
     object-fit: cover;
+  }
+
+  .video {
+    width: 100%;
+    height: 350px;
   }
   
   .subtitle {
