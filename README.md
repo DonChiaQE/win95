@@ -1,6 +1,6 @@
 # [Windows 95 Themed Portfolio](https://donchia.tech)
 
-<img width="1440" alt="Screenshot 2021-12-14 at 2 26 33 PM" src="https://user-images.githubusercontent.com/24926784/145944730-48de7cfc-d585-41a9-8f90-f5d08570a03e.png">
+<img width="1552" alt="Screenshot 2024-04-27 at 5 30 21 PM" src="https://github.com/DonChiaQE/win95/assets/24926784/e82a5550-b74e-489e-9b65-43877d5b14de">
 
 # Frameworks and Libraries used
 - Vue 3
