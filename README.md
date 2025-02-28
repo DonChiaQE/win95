@@ -37,4 +37,4 @@
 ```npm install```
 
 4. Compile project and serve
-```npm run serve```
+```npm run dev```
