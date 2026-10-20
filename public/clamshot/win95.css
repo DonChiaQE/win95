@@ -1,0 +1,185 @@
+/* The Clamshot privacy policy and terms: one Windows 95 window each, in the portfolio's
+   colors (see assets/css/windows/window.css). Plain static pages, served from public/. */
+
+:root {
+  --desk: #018281;
+  --face: #c3c3c3;
+  --light: #fafafa;
+  --shade: #5a5a5a;
+  --title: #00007c;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: 32px 16px 48px;
+  background: var(--desk);
+  color: #000;
+  font: 16px/1.55 Tahoma, Verdana, "Segoe UI", system-ui, sans-serif;
+}
+
+a {
+  color: var(--title);
+}
+
+.window {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 3px;
+  background: var(--face);
+  border-top: 2px solid var(--light);
+  border-left: 2px solid var(--light);
+  border-right: 2px solid var(--shade);
+  border-bottom: 2px solid var(--shade);
+  box-shadow: 1.5px 1.5px #000;
+  outline: 1px solid #dedede;
+}
+
+.title-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 3px 3px 3px 5px;
+  background: var(--title);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.title-bar .name {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  min-width: 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.title-bar img {
+  width: 16px;
+  height: 16px;
+  flex: none;
+}
+
+.title-bar .buttons {
+  display: flex;
+  flex: none;
+  gap: 2px;
+}
+
+.title-bar .buttons span {
+  width: 18px;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--face);
+  color: #000;
+  font-size: 11px;
+  line-height: 1;
+  border-top: 1px solid var(--light);
+  border-left: 1px solid var(--light);
+  border-right: 1px solid var(--shade);
+  border-bottom: 1px solid var(--shade);
+  box-shadow: 1px 1px #000;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 18px;
+  padding: 4px 6px 5px;
+  font-size: 14px;
+}
+
+.menu a {
+  color: #000;
+  text-decoration: none;
+}
+
+.menu a:hover,
+.menu a[aria-current="page"] {
+  text-decoration: underline;
+}
+
+.page {
+  padding: 20px 24px 28px;
+  background: #fff;
+  border-top: 2px solid var(--shade);
+  border-left: 2px solid var(--shade);
+  border-right: 2px solid var(--light);
+  border-bottom: 2px solid var(--light);
+}
+
+.page h1 {
+  margin: 0 0 4px;
+  font-size: 24px;
+  line-height: 1.25;
+}
+
+.page .updated {
+  margin: 0 0 20px;
+  color: #444;
+  font-size: 14px;
+}
+
+.page h2 {
+  margin: 28px 0 6px;
+  font-size: 17px;
+}
+
+.page p,
+.page li {
+  margin: 0 0 10px;
+}
+
+.page .short {
+  padding: 10px 12px;
+  background: #ffffe1;
+  border: 1px solid #000;
+}
+
+.status {
+  display: flex;
+  gap: 3px;
+  margin-top: 3px;
+  font-size: 13px;
+}
+
+.status span {
+  flex: 1;
+  min-width: 0;
+  padding: 2px 6px;
+  border-top: 1px solid var(--shade);
+  border-left: 1px solid var(--shade);
+  border-right: 1px solid var(--light);
+  border-bottom: 1px solid var(--light);
+}
+
+@media (max-width: 480px) {
+  body {
+    padding: 16px 12px 32px;
+  }
+
+  .page {
+    padding: 16px 16px 22px;
+  }
+
+  .page h1 {
+    font-size: 21px;
+  }
+
+  .status {
+    flex-direction: column;
+  }
+}
